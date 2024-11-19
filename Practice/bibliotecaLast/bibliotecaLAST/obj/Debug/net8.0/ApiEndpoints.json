@@ -1,0 +1,102 @@
+[
+  {
+    "ContainingType": "LibraryCrombie.Controllers.BibliotecaController",
+    "Method": "DevolverLibro",
+    "RelativePath": "api/Biblioteca/devolver",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "isbn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "idUsuario",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LibraryCrombie.Controllers.BibliotecaController",
+    "Method": "AgregarLibro",
+    "RelativePath": "api/Biblioteca/libros",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "libro",
+        "Type": "LibraryCrombie.Models.libroModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LibraryCrombie.Controllers.BibliotecaController",
+    "Method": "VerLibros",
+    "RelativePath": "api/Biblioteca/libros",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LibraryCrombie.Controllers.BibliotecaController",
+    "Method": "PrestarLibro",
+    "RelativePath": "api/Biblioteca/prestar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "isbn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "idUsuario",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LibraryCrombie.Controllers.BibliotecaController",
+    "Method": "RegistrarEstudiante",
+    "RelativePath": "api/Biblioteca/usuarios/estudiante",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "estudiante",
+        "Type": "LibraryCrombie.Models.estudianteModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LibraryCrombie.Controllers.BibliotecaController",
+    "Method": "RegistrarProfesor",
+    "RelativePath": "api/Biblioteca/usuarios/profesor",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "profesor",
+        "Type": "LibraryCrombie.Models.profesorModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

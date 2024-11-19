@@ -1,0 +1,69 @@
+﻿using LibraryCrombie.Models;
+using LibraryCrombie.Services;
+using Microsoft.AspNetCore.Mvc;
+
+namespace LibraryCrombie.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class BibliotecaController : ControllerBase
+    {
+        private readonly LibroService _libroService;
+        private readonly UsuarioService _usuarioService;
+
+        public BibliotecaController()
+        {
+            _libroService = new LibroService();
+            _usuarioService = new UsuarioService();
+        }
+
+        [HttpPost("libros")]
+        public IActionResult AgregarLibro(libroModel libro)
+        {
+            _libroService.AgregarLibro(libro);
+            return Ok("Libro agregado correctamente.");
+        }
+
+        [HttpPost("usuarios/estudiante")]
+        public IActionResult RegistrarEstudiante(estudianteModel estudiante)
+        {
+            _usuarioService.RegistrarUsuario(estudiante);
+            return Ok("Estudiante registrado correctamente.");
+        }
+
+        [HttpPost("usuarios/profesor")]
+        public IActionResult RegistrarProfesor(profesorModel profesor)
+        {
+            _usuarioService.RegistrarUsuario(profesor);
+            return Ok("Profesor registrado correctamente.");
+        }
+
+        [HttpPost("prestar")]
+        public IActionResult PrestarLibro(string isbn, string idUsuario)
+        {
+            var usuario = _usuarioService.ObtenerUsuario(idUsuario);
+            var libro = _libroService.ObtenerLibros().FirstOrDefault(l => l.ISBN == isbn && l.Disponible);
+            if (usuario != null && libro != null && usuario.PrestarMaterial(libro))
+            {
+                return Ok("Libro prestado correctamente.");
+            }
+            return BadRequest("Error al prestar libro.");
+        }
+
+        [HttpPost("devolver")]
+        public IActionResult DevolverLibro(string isbn, string idUsuario)
+        {
+            var usuario = _usuarioService.ObtenerUsuario(idUsuario);
+            var libro = _libroService.ObtenerLibros().FirstOrDefault(l => l.ISBN == isbn);
+            if (usuario != null && libro != null)
+            {
+                usuario.DevolverMaterial(libro);
+                return Ok("Libro devuelto correctamente.");
+            }
+            return BadRequest("Error al devolver libro.");
+        }
+
+        [HttpGet("libros")]
+        public IActionResult VerLibros() => Ok(_libroService.ObtenerLibros());
+    }
+}

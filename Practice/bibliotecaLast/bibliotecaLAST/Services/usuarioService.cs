@@ -1,13 +1,18 @@
-﻿using LibraryCrombie.Models;
+﻿using bibliotecaLAST.Models;
+using bibliotecaLAST.Models;
 using System.Collections.Generic;
 
-namespace LibraryCrombie.Services
+namespace bibliotecaLAST.Services
 {
     public class UsuarioService
     {
-        private readonly List<usuarioModel> usuarios = new List<usuarioModel>();
+        private readonly List<UsuarioModel> usuarios = new List<UsuarioModel>();
+        public virtual bool PrestarMaterial(UsuarioModel usuario, libroModel libro)
+        {
+            return false;
+        }
 
-        public void RegistrarUsuario(usuarioModel usuario)
+        public void RegistrarUsuario(UsuarioModel usuario)
         {
             if (!usuarios.Exists(u => u.ID == usuario.ID))
             {
@@ -15,9 +20,19 @@ namespace LibraryCrombie.Services
             }
         }
 
-        public usuarioModel ObtenerUsuario(string idUsuario)
+        public UsuarioModel ObtenerUsuario(string idUsuario)
         {
             return usuarios.Find(u => u.ID == idUsuario);
         }
+
+
+        //public virtual void DevolverMaterial(libroModel libro)
+        //{
+        //    if (LibrosPrestados.Contains(libro))
+        //    {
+        //        LibrosPrestados.Remove(libro);
+        //        libro.Disponible = true;
+        //    }
+        //}
     }
 }

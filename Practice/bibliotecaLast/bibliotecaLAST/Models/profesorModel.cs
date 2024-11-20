@@ -1,18 +1,7 @@
-﻿namespace LibraryCrombie.Models
+﻿namespace bibliotecaLAST.Models
 {
-    public class profesorModel : usuarioModel
+    public class ProfesorModel : UsuarioModel
     {
-        private const int MaxLibrosPrestados = 5;
-
-        public override bool PrestarMaterial(libroModel libro)
-        {
-            if (LibrosPrestados.Count < MaxLibrosPrestados && libro.Disponible)
-            {
-                LibrosPrestados.Add(libro);
-                libro.Disponible = false;
-                return true;
-            }
-            return false;
-        }
+        public int MaxLibrosPrestados = 5;
     }
 }

@@ -1,20 +1,21 @@
-﻿using LibraryCrombie.Models;
+﻿using bibliotecaLAST.Models;
+using bibliotecaLAST.Models;
 
-namespace LibraryCrombie.Services
+namespace bibliotecaLAST.Services
 {
     public class ProfesorService : UsuarioService
     {
-        public override bool PrestarMaterial(libroModel libro)
+
+        public override bool PrestarMaterial(ProfesorModel profesor, libroModel libro)
         {
-            if (LibrosPrestados.Count < MaxLibrosPrestados && libro.Disponible)
+            if (profesor.LibrosPrestados.Count < profesor.MaxLibrosPrestados && libro.Disponible)
             {
-                LibrosPrestados.Add(libro);
+                profesor.LibrosPrestados.Add(libro);
                 libro.Disponible = false;
                 return true;
             }
             return false;
-
         }
+
     }
 }
-

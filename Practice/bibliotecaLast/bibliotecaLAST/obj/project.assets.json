@@ -453,11 +453,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\juana\\source\\repos\\bibliotecaLAST\\bibliotecaLAST\\bibliotecaLAST.csproj",
+      "projectUniqueName": "C:\\Users\\juana\\OneDrive\\Desktop\\Crombie\\Practice\\bibliotecaLast\\bibliotecaLAST\\bibliotecaLAST.csproj",
       "projectName": "bibliotecaLAST",
-      "projectPath": "C:\\Users\\juana\\source\\repos\\bibliotecaLAST\\bibliotecaLAST\\bibliotecaLAST.csproj",
+      "projectPath": "C:\\Users\\juana\\OneDrive\\Desktop\\Crombie\\Practice\\bibliotecaLast\\bibliotecaLAST\\bibliotecaLAST.csproj",
       "packagesPath": "C:\\Users\\juana\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\juana\\source\\repos\\bibliotecaLAST\\bibliotecaLAST\\obj\\",
+      "outputPath": "C:\\Users\\juana\\OneDrive\\Desktop\\Crombie\\Practice\\bibliotecaLast\\bibliotecaLAST\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

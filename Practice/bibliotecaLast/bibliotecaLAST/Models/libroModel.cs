@@ -1,4 +1,4 @@
-﻿namespace LibraryCrombie.Models
+﻿namespace bibliotecaLAST.Models
 {
     public class libroModel
     {

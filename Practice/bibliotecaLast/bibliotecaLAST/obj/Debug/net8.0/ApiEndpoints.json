@@ -1,27 +1,6 @@
 [
   {
-    "ContainingType": "LibraryCrombie.Controllers.BibliotecaController",
-    "Method": "DevolverLibro",
-    "RelativePath": "api/Biblioteca/devolver",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "isbn",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "idUsuario",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "LibraryCrombie.Controllers.BibliotecaController",
+    "ContainingType": "bibliotecaLAST.Controllers.BibliotecaController",
     "Method": "AgregarLibro",
     "RelativePath": "api/Biblioteca/libros",
     "HttpMethod": "POST",
@@ -30,14 +9,14 @@
     "Parameters": [
       {
         "Name": "libro",
-        "Type": "LibraryCrombie.Models.libroModel",
+        "Type": "bibliotecaLAST.Models.LibroModel",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LibraryCrombie.Controllers.BibliotecaController",
+    "ContainingType": "bibliotecaLAST.Controllers.BibliotecaController",
     "Method": "VerLibros",
     "RelativePath": "api/Biblioteca/libros",
     "HttpMethod": "GET",
@@ -47,28 +26,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LibraryCrombie.Controllers.BibliotecaController",
-    "Method": "PrestarLibro",
-    "RelativePath": "api/Biblioteca/prestar",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "isbn",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "idUsuario",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "LibraryCrombie.Controllers.BibliotecaController",
+    "ContainingType": "bibliotecaLAST.Controllers.BibliotecaController",
     "Method": "RegistrarEstudiante",
     "RelativePath": "api/Biblioteca/usuarios/estudiante",
     "HttpMethod": "POST",
@@ -77,14 +35,14 @@
     "Parameters": [
       {
         "Name": "estudiante",
-        "Type": "LibraryCrombie.Models.estudianteModel",
+        "Type": "bibliotecaLAST.Models.estudianteModel",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LibraryCrombie.Controllers.BibliotecaController",
+    "ContainingType": "bibliotecaLAST.Controllers.BibliotecaController",
     "Method": "RegistrarProfesor",
     "RelativePath": "api/Biblioteca/usuarios/profesor",
     "HttpMethod": "POST",
@@ -93,7 +51,49 @@
     "Parameters": [
       {
         "Name": "profesor",
-        "Type": "LibraryCrombie.Models.profesorModel",
+        "Type": "bibliotecaLAST.Models.ProfesorModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "bibliotecaLAST.Controllers.LibrosController",
+    "Method": "GetAllBooks",
+    "RelativePath": "api/Libros",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "bibliotecaLAST.Controllers.LibrosController",
+    "Method": "AgregarLibro",
+    "RelativePath": "api/Libros",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "libro",
+        "Type": "bibliotecaLAST.Models.LibroModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "bibliotecaLAST.Controllers.LibrosController",
+    "Method": "GetSingleBook",
+    "RelativePath": "api/Libros/{isbn}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "isbn",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],

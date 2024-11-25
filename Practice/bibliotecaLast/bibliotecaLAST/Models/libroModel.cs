@@ -1,6 +1,6 @@
 ﻿namespace bibliotecaLAST.Models
 {
-    public class libroModel
+    public class LibroModel
     {
         public string Titulo { get; set; }
         public string Autor { get; set; }

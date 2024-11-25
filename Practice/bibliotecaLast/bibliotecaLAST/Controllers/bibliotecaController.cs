@@ -19,7 +19,7 @@ namespace bibliotecaLAST.Controllers
         }
 
         [HttpPost("libros")]
-        public IActionResult AgregarLibro(libroModel libro)
+        public IActionResult AgregarLibro(LibroModel libro)
         {
             _libroService.AgregarLibro(libro);
             return Ok("Libro agregado correctamente.");

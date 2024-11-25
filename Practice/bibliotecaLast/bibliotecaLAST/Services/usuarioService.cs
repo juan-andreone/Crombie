@@ -1,5 +1,4 @@
 ﻿using bibliotecaLAST.Models;
-using bibliotecaLAST.Models;
 using System.Collections.Generic;
 
 namespace bibliotecaLAST.Services
@@ -7,9 +6,23 @@ namespace bibliotecaLAST.Services
     public class UsuarioService
     {
         private readonly List<UsuarioModel> usuarios = new List<UsuarioModel>();
-        public virtual bool PrestarMaterial(UsuarioModel usuario, libroModel libro)
+        
+        public bool PrestarMaterial(UsuarioModel usuario, LibroModel libro)
         {
-            return false;
+            if (!libro.Disponible)
+            {
+                return false;
+            }
+
+            if (usuario.LibrosPrestados.Count >= usuario.MaxLibrosPrestados)
+            {
+                return false;
+            }
+
+            usuario.LibrosPrestados.Add(libro);
+            libro.Disponible = false;
+
+            return true;
         }
 
         public void RegistrarUsuario(UsuarioModel usuario)

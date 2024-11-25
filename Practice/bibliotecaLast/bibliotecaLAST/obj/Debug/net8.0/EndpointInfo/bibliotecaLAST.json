@@ -14,17 +14,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/libroModel"
+                "$ref": "#/components/schemas/LibroModel"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/libroModel"
+                "$ref": "#/components/schemas/LibroModel"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/libroModel"
+                "$ref": "#/components/schemas/LibroModel"
               }
             }
           }
@@ -86,17 +86,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/profesorModel"
+                "$ref": "#/components/schemas/ProfesorModel"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/profesorModel"
+                "$ref": "#/components/schemas/ProfesorModel"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/profesorModel"
+                "$ref": "#/components/schemas/ProfesorModel"
               }
             }
           }
@@ -108,27 +108,40 @@
         }
       }
     },
-    "/api/Biblioteca/prestar": {
+    "/api/Libros": {
+      "get": {
+        "tags": [
+          "Libros"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
       "post": {
         "tags": [
-          "Biblioteca"
+          "Libros"
         ],
-        "parameters": [
-          {
-            "name": "isbn",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "idUsuario",
-            "in": "query",
-            "schema": {
-              "type": "string"
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LibroModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LibroModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LibroModel"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -136,22 +149,16 @@
         }
       }
     },
-    "/api/Biblioteca/devolver": {
-      "post": {
+    "/api/Libros/{isbn}": {
+      "get": {
         "tags": [
-          "Biblioteca"
+          "Libros"
         ],
         "parameters": [
           {
             "name": "isbn",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "idUsuario",
-            "in": "query",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -167,28 +174,7 @@
   },
   "components": {
     "schemas": {
-      "estudianteModel": {
-        "type": "object",
-        "properties": {
-          "nombre": {
-            "type": "string",
-            "nullable": true
-          },
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "librosPrestados": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/libroModel"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "libroModel": {
+      "LibroModel": {
         "type": "object",
         "properties": {
           "titulo": {
@@ -209,7 +195,7 @@
         },
         "additionalProperties": false
       },
-      "profesorModel": {
+      "ProfesorModel": {
         "type": "object",
         "properties": {
           "nombre": {
@@ -223,7 +209,28 @@
           "librosPrestados": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/libroModel"
+              "$ref": "#/components/schemas/LibroModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "estudianteModel": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "librosPrestados": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LibroModel"
             },
             "nullable": true
           }

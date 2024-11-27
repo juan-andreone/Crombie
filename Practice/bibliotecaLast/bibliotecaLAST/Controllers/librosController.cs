@@ -9,10 +9,12 @@ namespace bibliotecaLAST.Controllers
     public class LibrosController : ControllerBase
     {
         private readonly LibroService _libroService;
+        private readonly UsuarioService _usuarioService;
 
         public LibrosController()
         {
             _libroService = new LibroService();
+            _usuarioService = new UsuarioService();
         }
 
         [HttpGet]
@@ -31,7 +33,8 @@ namespace bibliotecaLAST.Controllers
             if (resultado)
             {
                 return Ok(libro);
-            } else
+            }
+            else
             {
                 return BadRequest("Error al agregar libro. Libro duplicado.");
             }
@@ -45,52 +48,67 @@ namespace bibliotecaLAST.Controllers
             if (book != null)
             {
                 return Ok(book);
-            } else
+            }
+            else
             {
                 return NotFound();
             }
         }
 
-        // [HttpPost("usuarios/estudiante")]
-        // public IActionResult RegistrarEstudiante(estudianteModel estudiante)
-        // {
-        //     _usuarioService.RegistrarUsuario(estudiante);
-        //     return Ok("Estudiante registrado correctamente.");
-        // }
+        [HttpDelete("{isbn}")]
+        public IActionResult DeleteBook(string id)
+        {
+            bool resultado = _libroService.EliminarLibro(id);
 
-        // [HttpPost("usuarios/profesor")]
-        // public IActionResult RegistrarProfesor(ProfesorModel profesor)
-        // {
-        //     _usuarioService.RegistrarUsuario(profesor);
-        //     return Ok("Profesor registrado correctamente.");
-        // }
+            if (resultado)
+            {
+                return Ok($"Libro con ID {id} eliminado correctamente.");
+            }
+            else
+            {
+                return NotFound($"Libro con ID {id} no encontrado.");
+            }
+        }
 
-        //[HttpPost("prestar")]
-        //public IActionResult PrestarLibro(string isbn, string idUsuario)
-        //{
-        //    var usuario = _usuarioService.ObtenerUsuario(idUsuario);
-        //    var libro = _libroService.ObtenerLibros().FirstOrDefault(l => l.ISBN == isbn && l.Disponible);
-        //    if (usuario != null && libro != null && usuario.PrestarMaterial(libro))
-        //    {
-        //        return Ok("Libro prestado correctamente.");
-        //    }
-        //    return BadRequest("Error al prestar libro.");
-        //}
 
-        //[HttpPost("devolver")]
-        //public IActionResult DevolverLibro(string isbn, string idUsuario)
-        //{
-        //    var usuario = _usuarioService.ObtenerUsuario(idUsuario);
-        //    var libro = _libroService.ObtenerLibros().FirstOrDefault(l => l.ISBN == isbn);
-        //    if (usuario != null && libro != null)
-        //    {
-        //        usuario.DevolverMaterial(libro);
-        //        return Ok("Libro devuelto correctamente.");
-        //    }
-        //    return BadRequest("Error al devolver libro.");
-        //}
+        [HttpPost("prestar")]
+        public IActionResult PrestarLibro(string isbn, string idUsuario)
+        {
+            var usuario = _usuarioService.ObtenerUsuario(idUsuario);
+            var libro = _libroService.ObtenerLibros().FirstOrDefault(l => l.ISBN == isbn && l.Disponible);
+            if (usuario != null && libro != null)
+            {
+                var prestado = _usuarioService.PrestarMaterial(usuario, libro);
+                if (prestado)
+                {
+                    return Ok("Libro prestado correctamente.");
 
-        // [HttpGet("libros")]
-        // public IActionResult VerLibros() => Ok(_libroService.ObtenerLibros());
+
+                }
+                else
+                {
+                    return BadRequest("Maximo excedido.");
+                }
+
+            }
+            return BadRequest("Error al prestar libro.");
+        }
+
+        [HttpPost("devolver")]
+        public IActionResult DevolverLibro(string isbn, string idUsuario)
+        {
+            var usuario = _usuarioService.ObtenerUsuario(idUsuario);
+            var libro = _libroService.ObtenerLibros().FirstOrDefault(l => l.ISBN == isbn);
+            if (usuario != null && libro != null)
+            {
+                _usuarioService.DevolverMaterial(usuario, libro);
+                return Ok("Libro devuelto correctamente.");
+            }
+            return BadRequest("Error al devolver libro.");
+        }
+
+
+        //[HttpGet("libros")] ESTA REPETIDO
+        //public IActionResult VerLibros() => Ok(_libroService.ObtenerLibros());
     }
 }

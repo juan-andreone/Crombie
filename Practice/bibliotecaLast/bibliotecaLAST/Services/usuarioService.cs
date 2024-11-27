@@ -5,7 +5,7 @@ namespace bibliotecaLAST.Services
 {
     public class UsuarioService
     {
-        private readonly List<UsuarioModel> usuarios = new List<UsuarioModel>();
+        private static List<UsuarioModel> usuarios = new List<UsuarioModel>();
         
         public bool PrestarMaterial(UsuarioModel usuario, LibroModel libro)
         {
@@ -25,12 +25,40 @@ namespace bibliotecaLAST.Services
             return true;
         }
 
-        public void RegistrarUsuario(UsuarioModel usuario)
+        public bool DevolverMaterial(UsuarioModel usuario, LibroModel libro)
         {
-            if (!usuarios.Exists(u => u.ID == usuario.ID))
+           
+
+            if (usuario.LibrosPrestados.Count >= usuario.MaxLibrosPrestados)
             {
-                usuarios.Add(usuario);
+                
+                return false;
             }
+
+            usuario.LibrosPrestados.Remove(libro);
+            libro.Disponible = true;
+
+            return true;
+        }
+
+        public bool RegistrarEstudiante(EstudianteModel estudiante)
+        {
+            if (!usuarios.Exists(u => u.ID == estudiante.ID))
+            {
+                usuarios.Add(estudiante);
+                return true;
+            }
+            else { return false; }
+        }
+
+        public bool RegistrarProfesor(ProfesorModel profesor)
+        {
+            if (!usuarios.Exists(u => u.ID == profesor.ID))
+            {
+                usuarios.Add(profesor);
+                return true;
+            }
+            else { return false; }
         }
 
         public UsuarioModel ObtenerUsuario(string idUsuario)
@@ -38,14 +66,29 @@ namespace bibliotecaLAST.Services
             return usuarios.Find(u => u.ID == idUsuario);
         }
 
+        public List<UsuarioModel> ObtenerUsuarios()
+        {
+            return usuarios;
+        }
 
-        //public virtual void DevolverMaterial(libroModel libro)
-        //{
-        //    if (LibrosPrestados.Contains(libro))
-        //    {
-        //        LibrosPrestados.Remove(libro);
-        //        libro.Disponible = true;
-        //    }
-        //}
+        public bool EliminarUsuario(string idUsuario)
+        {
+            UsuarioModel usuario = usuarios.FirstOrDefault(u => u.ID == idUsuario); 
+
+            if (usuario != null)
+            {
+                foreach (var libro in usuario.LibrosPrestados)
+                {
+                 libro.Disponible = true;
+                }
+                usuarios.Remove(usuario); 
+                return true;
+            }
+            return false; 
+        }
+
+
+
+        
     }
 }

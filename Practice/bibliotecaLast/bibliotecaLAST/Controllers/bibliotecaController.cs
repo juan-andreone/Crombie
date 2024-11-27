@@ -1,5 +1,4 @@
 ﻿using bibliotecaLAST.Models;
-using bibliotecaLAST.Models;
 using bibliotecaLAST.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,26 +17,16 @@ namespace bibliotecaLAST.Controllers
             _usuarioService = new UsuarioService();
         }
 
-        [HttpPost("libros")]
-        public IActionResult AgregarLibro(LibroModel libro)
-        {
-            _libroService.AgregarLibro(libro);
-            return Ok("Libro agregado correctamente.");
-        }
+        //[HttpPost("libros")] 
+        //public IActionResult AgregarLibro(LibroModel libro)
+        //{
+        //    _libroService.AgregarLibro(libro);
+        //    return Ok("Libro agregado correctamente.");
+        //}
 
-        [HttpPost("usuarios/estudiante")]
-        public IActionResult RegistrarEstudiante(estudianteModel estudiante)
-        {
-            _usuarioService.RegistrarUsuario(estudiante);
-            return Ok("Estudiante registrado correctamente.");
-        }
+        
 
-        [HttpPost("usuarios/profesor")]
-        public IActionResult RegistrarProfesor(ProfesorModel profesor)
-        {
-            _usuarioService.RegistrarUsuario(profesor);
-            return Ok("Profesor registrado correctamente.");
-        }
+        
 
         //[HttpPost("prestar")]
         //public IActionResult PrestarLibro(string isbn, string idUsuario)
@@ -64,7 +53,7 @@ namespace bibliotecaLAST.Controllers
         //    return BadRequest("Error al devolver libro.");
         //}
 
-        [HttpGet("libros")]
-        public IActionResult VerLibros() => Ok(_libroService.ObtenerLibros());
+        //[HttpGet("libros")]
+        //public IActionResult VerLibros() => Ok(_libroService.ObtenerLibros());
     }
 }

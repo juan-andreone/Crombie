@@ -8,12 +8,9 @@ namespace bibliotecaLAST.Services
 {
     public class LibroService
     {
-        private List<LibroModel> _libros;
+        private static List<LibroModel> _libros = new List<LibroModel>();
         
-        public LibroService() {
-            _libros = new List<LibroModel>();
-
-        }
+        
 
         public bool AgregarLibro(LibroModel libro)
         {
@@ -21,7 +18,7 @@ namespace bibliotecaLAST.Services
 
             if (!duplicated)
             {
-                this._libros.Add(libro);
+                _libros.Add(libro);
                 Console.WriteLine(_libros.Count);
                 Console.WriteLine("Libro agregado", libro);
                 return true;
@@ -39,6 +36,21 @@ namespace bibliotecaLAST.Services
         public LibroModel? ObtenerLibroIndividual(string isbn)
         {
             return _libros.Find(l => l.ISBN == isbn);
+
         }
+        public bool EliminarLibro(string isbn)
+        {
+            LibroModel libro = _libros.FirstOrDefault(u => u.ISBN == isbn);
+
+            if (libro != null)
+            {
+                _libros.Remove(libro);
+                return true;
+            }
+            return false;
+        }
+
+        
+
     }
 }

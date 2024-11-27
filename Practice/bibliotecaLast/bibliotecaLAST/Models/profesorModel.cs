@@ -2,6 +2,6 @@
 {
     public class ProfesorModel : UsuarioModel
     {
-        public int MaxLibrosPrestados = 5;
+        public override int MaxLibrosPrestados => 5;
     }
 }

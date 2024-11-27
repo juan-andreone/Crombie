@@ -2,8 +2,8 @@
 
 namespace bibliotecaLAST.Models
 {
-    public class estudianteModel : UsuarioModel
+    public class EstudianteModel : UsuarioModel
     {
-        public int MaxLibrosPrestados = 3;        
+        public override int MaxLibrosPrestados => 3;
     }
 }

@@ -1,63 +1,5 @@
 [
   {
-    "ContainingType": "bibliotecaLAST.Controllers.BibliotecaController",
-    "Method": "AgregarLibro",
-    "RelativePath": "api/Biblioteca/libros",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "libro",
-        "Type": "bibliotecaLAST.Models.LibroModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "bibliotecaLAST.Controllers.BibliotecaController",
-    "Method": "VerLibros",
-    "RelativePath": "api/Biblioteca/libros",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "bibliotecaLAST.Controllers.BibliotecaController",
-    "Method": "RegistrarEstudiante",
-    "RelativePath": "api/Biblioteca/usuarios/estudiante",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "estudiante",
-        "Type": "bibliotecaLAST.Models.estudianteModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "bibliotecaLAST.Controllers.BibliotecaController",
-    "Method": "RegistrarProfesor",
-    "RelativePath": "api/Biblioteca/usuarios/profesor",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "profesor",
-        "Type": "bibliotecaLAST.Models.ProfesorModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "bibliotecaLAST.Controllers.LibrosController",
     "Method": "GetAllBooks",
     "RelativePath": "api/Libros",
@@ -94,6 +36,143 @@
       {
         "Name": "isbn",
         "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "bibliotecaLAST.Controllers.LibrosController",
+    "Method": "DeleteBook",
+    "RelativePath": "api/Libros/{isbn}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "isbn",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "bibliotecaLAST.Controllers.LibrosController",
+    "Method": "DevolverLibro",
+    "RelativePath": "api/Libros/devolver",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "isbn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "idUsuario",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "bibliotecaLAST.Controllers.LibrosController",
+    "Method": "PrestarLibro",
+    "RelativePath": "api/Libros/prestar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "isbn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "idUsuario",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "bibliotecaLAST.Controllers.UsuarioController",
+    "Method": "GetUser",
+    "RelativePath": "api/Usuario",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IdUsuario",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "bibliotecaLAST.Controllers.UsuarioController",
+    "Method": "DeleteUser",
+    "RelativePath": "api/Usuario/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "bibliotecaLAST.Controllers.UsuarioController",
+    "Method": "GetAllUsers",
+    "RelativePath": "api/Usuario/Todos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "bibliotecaLAST.Controllers.UsuarioController",
+    "Method": "RegistrarEstudiante",
+    "RelativePath": "api/Usuario/Usuario/Estudiante",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "estudiante",
+        "Type": "bibliotecaLAST.Models.EstudianteModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "bibliotecaLAST.Controllers.UsuarioController",
+    "Method": "RegistrarProfesor",
+    "RelativePath": "api/Usuario/Usuario/Profesor",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "profesor",
+        "Type": "bibliotecaLAST.Models.ProfesorModel",
         "IsRequired": true
       }
     ],

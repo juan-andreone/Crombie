@@ -71,3 +71,11 @@ C:\Users\juana\OneDrive\Desktop\Crombie\Practice\bibliotecaLast\bibliotecaLAST\o
 C:\Users\juana\OneDrive\Desktop\Crombie\Practice\bibliotecaLast\bibliotecaLAST\obj\Debug\net8.0\bibliotecaLAST.pdb
 C:\Users\juana\OneDrive\Desktop\Crombie\Practice\bibliotecaLast\bibliotecaLAST\obj\Debug\net8.0\bibliotecaLAST.genruntimeconfig.cache
 C:\Users\juana\OneDrive\Desktop\Crombie\Practice\bibliotecaLast\bibliotecaLAST\obj\Debug\net8.0\ref\bibliotecaLAST.dll
+C:\Users\juana\OneDrive\Desktop\Crombie\Practice\bibliotecaLast\bibliotecaLAST\bin\Debug\net8.0\ClosedXML.dll
+C:\Users\juana\OneDrive\Desktop\Crombie\Practice\bibliotecaLast\bibliotecaLAST\bin\Debug\net8.0\ClosedXML.Parser.dll
+C:\Users\juana\OneDrive\Desktop\Crombie\Practice\bibliotecaLast\bibliotecaLAST\bin\Debug\net8.0\DocumentFormat.OpenXml.dll
+C:\Users\juana\OneDrive\Desktop\Crombie\Practice\bibliotecaLast\bibliotecaLAST\bin\Debug\net8.0\DocumentFormat.OpenXml.Framework.dll
+C:\Users\juana\OneDrive\Desktop\Crombie\Practice\bibliotecaLast\bibliotecaLAST\bin\Debug\net8.0\ExcelNumberFormat.dll
+C:\Users\juana\OneDrive\Desktop\Crombie\Practice\bibliotecaLast\bibliotecaLAST\bin\Debug\net8.0\RBush.dll
+C:\Users\juana\OneDrive\Desktop\Crombie\Practice\bibliotecaLast\bibliotecaLAST\bin\Debug\net8.0\SixLabors.Fonts.dll
+C:\Users\juana\OneDrive\Desktop\Crombie\Practice\bibliotecaLast\bibliotecaLAST\bin\Debug\net8.0\System.IO.Packaging.dll

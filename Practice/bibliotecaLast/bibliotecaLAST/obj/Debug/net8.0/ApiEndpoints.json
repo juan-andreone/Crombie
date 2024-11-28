@@ -1,5 +1,77 @@
 [
   {
+    "ContainingType": "bibliotecaLAST.Controllers.ExcelController",
+    "Method": "ObtenerEncabezados",
+    "RelativePath": "api/Excel",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "bibliotecaLAST.Controllers.ExcelController",
+    "Method": "ActualizarDatos",
+    "RelativePath": "api/Excel/actualizar",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "datosActualizados",
+        "Type": "bibliotecaLAST.Models.ExcelModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "bibliotecaLAST.Controllers.ExcelController",
+    "Method": "GetDatos",
+    "RelativePath": "api/Excel/datos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[bibliotecaLAST.Models.ExcelModel, bibliotecaLAST, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "bibliotecaLAST.Controllers.ExcelController",
+    "Method": "InsertarDatos",
+    "RelativePath": "api/Excel/insertar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nuevosDatos",
+        "Type": "System.Collections.Generic.List\u00601[[bibliotecaLAST.Models.ExcelModel, bibliotecaLAST, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "bibliotecaLAST.Controllers.LibrosController",
     "Method": "GetAllBooks",
     "RelativePath": "api/Libros",

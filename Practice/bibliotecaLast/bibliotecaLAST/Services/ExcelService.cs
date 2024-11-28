@@ -1,11 +1,18 @@
 ﻿using ClosedXML.Excel;
 
 using bibliotecaLAST.Models;
+using bibliotecaLAST.Logging;
 
 namespace bibliotecaLAST.Services
 {
     public class ExcelService
     {
+        private readonly FileLogger _logger;
+
+        public ExcelService(FileLogger logger)
+        {
+            _logger = logger;
+        }
         // Función para obtener los encabezados de un archivo Excel.
         // Esta función abre el archivo, lee la primera fila y devuelve una lista de los nombres de las columnas.
         public List<string> ObtenerEncabezados(string filePath)
@@ -75,30 +82,38 @@ namespace bibliotecaLAST.Services
         // Esta función abre el archivo, encuentra la última fila utilizada e inserta los nuevos datos a partir de esa posición.
         public void InsertarDatos(string filePath, List<ExcelModel> nuevosDatos)
         {
-            // Abre el archivo Excel en la ruta especificada.
-            using (var workbook = new XLWorkbook(filePath))
+            try
             {
-                // Selecciona la primera hoja del archivo.
-                var worksheet = workbook.Worksheet(1);
-
-                // Encuentra el número de la última fila utilizada en la hoja.
-                int lastRowUsed = worksheet.LastRowUsed().RowNumber();
-
-                // Recorre la lista de objetos y los inserta como nuevas filas en el archivo Excel.
-                foreach (var item in nuevosDatos)
+                // Abre el archivo Excel en la ruta especificada.
+                using (var workbook = new XLWorkbook(filePath))
                 {
-                    lastRowUsed++; // Mueve a la siguiente fila disponible
+                    // Selecciona la primera hoja del archivo.
+                    var worksheet = workbook.Worksheet(1);
 
-                    // Inserta los valores en las columnas correspondientes de la nueva fila.
-                    worksheet.Cell(lastRowUsed, 1).Value = item.ID;
-                    worksheet.Cell(lastRowUsed, 2).Value = item.Nombre;
-                    worksheet.Cell(lastRowUsed, 3).Value = item.Accion;
-                    worksheet.Cell(lastRowUsed, 4).Value = item.Libro;
+                    // Encuentra el número de la última fila utilizada en la hoja.
+                    int lastRowUsed = worksheet.LastRowUsed().RowNumber();
 
+                    // Recorre la lista de objetos y los inserta como nuevas filas en el archivo Excel.
+                    foreach (var item in nuevosDatos)
+                    {
+                        lastRowUsed++; // Mueve a la siguiente fila disponible
+
+                        // Inserta los valores en las columnas correspondientes de la nueva fila.
+                        worksheet.Cell(lastRowUsed, 1).Value = item.ID;
+                        worksheet.Cell(lastRowUsed, 2).Value = item.Nombre;
+                        worksheet.Cell(lastRowUsed, 3).Value = item.Accion;
+                        worksheet.Cell(lastRowUsed, 4).Value = item.Libro;
+
+                    }
+
+                    // Guarda los cambios en el archivo.
+                    workbook.Save();
                 }
-
-                // Guarda los cambios en el archivo.
-                workbook.Save();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Error al insertar datos en el archivo Excel", ex);
+                throw; // Re-lanzar para que el controlador pueda manejar la excepción si es necesario
             }
 
             Console.WriteLine("Datos insertados exitosamente en el archivo Excel.");

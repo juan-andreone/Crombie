@@ -4,10 +4,11 @@ using bibliotecaLAST.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
+
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -20,7 +21,7 @@ builder.Services
 var logFilePath = Path.Combine(
     AppDomain.CurrentDomain.BaseDirectory, // Ruta base del proyecto una vez compilado
     "Logs",                               // Nombre de la carpeta
-    "api-errors.log"                      // Nombre del archivo
+    "logs.log"                      // Nombre del archivo
 );
 
 Directory.CreateDirectory(Path.GetDirectoryName(logFilePath)); // Crear el directorio si no existe

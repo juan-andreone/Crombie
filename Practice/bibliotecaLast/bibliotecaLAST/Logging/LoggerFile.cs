@@ -1,8 +1,10 @@
-﻿namespace bibliotecaLAST.Logging
+﻿
+namespace bibliotecaLAST.Logging
+
 {
     public class FileLogger
     {
-        private readonly string _filePath;
+        private readonly string _filePath = "C:\\Users\\juana\\OneDrive\\Desktop\\Crombie\\Practice\\bibliotecaLast\\bibliotecaLAST\\Logs\\logs.log";
 
         public FileLogger(string filePath)
         {

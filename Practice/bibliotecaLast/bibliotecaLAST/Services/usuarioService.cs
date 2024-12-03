@@ -1,5 +1,8 @@
 ﻿using bibliotecaLAST.Models;
+using Microsoft.Data.SqlClient;
 using System.Collections.Generic;
+using Dapper;
+
 
 namespace bibliotecaLAST.Services
 {
@@ -88,7 +91,7 @@ namespace bibliotecaLAST.Services
         }
 
 
-
         
+
     }
 }

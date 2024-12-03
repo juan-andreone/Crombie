@@ -3,6 +3,9 @@
 using bibliotecaLAST.Models;
 using bibliotecaLAST.Logging;
 
+using Microsoft.Data.SqlClient;
+using Dapper;
+
 namespace bibliotecaLAST.Services
 {
     public class ExcelService
@@ -155,6 +158,19 @@ namespace bibliotecaLAST.Services
             }
         }
 
+
+        public List<UsuarioModel> GetIDsFromUsers()
+        {
+            var connectionString = "Server=localhost;    Database=biblioteca;   Integrated Security=true; TrustServerCertificate=True;";
+
+            var connection = new SqlConnection(connectionString);
+
+            var sql = "SELECT * FROM Usuarios";
+
+            var idUsuarios = connection.Query<UsuarioModel>(sql).ToList();
+
+            return idUsuarios;
+        }
 
 
     }

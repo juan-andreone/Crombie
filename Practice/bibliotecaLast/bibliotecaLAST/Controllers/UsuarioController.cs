@@ -25,9 +25,10 @@ namespace bibliotecaLAST.Controllers
             return Ok(User);
         }
 
+        
 
 
-       
+
         [HttpGet("Todos")]
         public IActionResult GetAllUsers()
         {

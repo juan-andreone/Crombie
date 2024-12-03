@@ -177,6 +177,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "WebApplication1.Controllers.SampleController",
+    "Method": "GetNames",
+    "RelativePath": "api/Sample",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "bibliotecaLAST.Controllers.UsuarioController",
     "Method": "GetUser",
     "RelativePath": "api/Usuario",

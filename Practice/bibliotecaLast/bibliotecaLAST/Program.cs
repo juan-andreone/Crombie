@@ -2,6 +2,13 @@ using bibliotecaLAST.Logging;
 using bibliotecaLAST.Middlewares;
 using bibliotecaLAST.Services;
 
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Data.SqlClient;
+using Dapper;
+using WebApplication1.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -29,7 +36,13 @@ Directory.CreateDirectory(Path.GetDirectoryName(logFilePath)); // Crear el direc
 builder.Services.AddSingleton(new FileLogger(logFilePath));
 
 
-
+builder.Services.AddSingleton<SqlConnection>(serviceProvider =>
+{
+    var configuration = serviceProvider.GetRequiredService<IConfiguration>();
+    var connectionString = configuration.GetConnectionString("DefaultConnection");
+    return new SqlConnection(connectionString);
+});
+builder.Services.AddScoped<IDatabaseService, DatabaseService>();
 
 
 

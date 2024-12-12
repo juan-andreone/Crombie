@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Data.SqlClient;
 using Dapper;
 using WebApplication1.Services;
+using bibliotecaLAST;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddControllers();
+builder.Services.AddSingleton<DapperContext>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -44,6 +46,7 @@ builder.Services.AddSingleton<SqlConnection>(serviceProvider =>
 });
 builder.Services.AddScoped<IDatabaseService, DatabaseService>();
 
+builder.Services.AddScoped<ILibroDBService, LibroDBService>();
 
 
 var app = builder.Build();

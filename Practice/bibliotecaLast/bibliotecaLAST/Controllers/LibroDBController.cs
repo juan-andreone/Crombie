@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebApplication1.Services;
 using System.Threading.Tasks;
+using bibliotecaLAST.Controllers;
+using bibliotecaLAST.Services;
 
-namespace WebApplication1.Controllers
+namespace bibliotecaLAST.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -63,12 +64,5 @@ namespace WebApplication1.Controllers
 
     }
 
-    public class Libro
-    {
-        public int ID { get; set; }
-        public string Nombre_Autor { get; set; }
-        public string Titulo { get; set; }
-        public string ISBN { get; set; }
-        public bool Disponible { get; set; }
-    }
+   
 }

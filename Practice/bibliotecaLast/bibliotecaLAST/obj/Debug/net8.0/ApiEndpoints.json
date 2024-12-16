@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "WebApplication1.Controllers.LibroDBController",
+    "ContainingType": "bibliotecaLAST.Controllers.LibroDBController",
     "Method": "GetNombres",
     "RelativePath": "api/LibroDB",
     "HttpMethod": "GET",
@@ -10,7 +10,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApplication1.Controllers.LibroDBController",
+    "ContainingType": "bibliotecaLAST.Controllers.LibroDBController",
     "Method": "CreateLibro",
     "RelativePath": "api/LibroDB",
     "HttpMethod": "POST",
@@ -19,14 +19,14 @@
     "Parameters": [
       {
         "Name": "nuevoLibro",
-        "Type": "WebApplication1.Controllers.Libro",
+        "Type": "bibliotecaLAST.Controllers.Libro",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApplication1.Controllers.LibroDBController",
+    "ContainingType": "bibliotecaLAST.Controllers.LibroDBController",
     "Method": "GetById",
     "RelativePath": "api/LibroDB/{id}",
     "HttpMethod": "GET",
@@ -42,7 +42,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApplication1.Controllers.LibroDBController",
+    "ContainingType": "bibliotecaLAST.Controllers.LibroDBController",
     "Method": "DeleteLibro",
     "RelativePath": "api/LibroDB/{id}",
     "HttpMethod": "DELETE",
@@ -58,7 +58,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApplication1.Controllers.LibroDBController",
+    "ContainingType": "bibliotecaLAST.Controllers.LibroDBController",
     "Method": "UpdateLibro",
     "RelativePath": "api/LibroDB/{id}",
     "HttpMethod": "PUT",
@@ -72,14 +72,14 @@
       },
       {
         "Name": "libroActualizado",
-        "Type": "WebApplication1.Controllers.Libro",
+        "Type": "bibliotecaLAST.Controllers.Libro",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApplication1.Controllers.UsuarioDBController",
+    "ContainingType": "bibliotecaLAST.Controllers.UsuarioDBController",
     "Method": "GetNames",
     "RelativePath": "api/UsuarioDB",
     "HttpMethod": "GET",
@@ -89,7 +89,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApplication1.Controllers.UsuarioDBController",
+    "ContainingType": "bibliotecaLAST.Controllers.UsuarioDBController",
     "Method": "CreateUser",
     "RelativePath": "api/UsuarioDB",
     "HttpMethod": "POST",
@@ -98,14 +98,14 @@
     "Parameters": [
       {
         "Name": "nuevoUsuario",
-        "Type": "WebApplication1.Controllers.Usuarios",
+        "Type": "bibliotecaLAST.Controllers.Usuarios",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApplication1.Controllers.UsuarioDBController",
+    "ContainingType": "bibliotecaLAST.Controllers.UsuarioDBController",
     "Method": "GetById",
     "RelativePath": "api/UsuarioDB/{id}",
     "HttpMethod": "GET",
@@ -121,7 +121,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApplication1.Controllers.UsuarioDBController",
+    "ContainingType": "bibliotecaLAST.Controllers.UsuarioDBController",
     "Method": "DeleteUser",
     "RelativePath": "api/UsuarioDB/{id}",
     "HttpMethod": "DELETE",
@@ -137,7 +137,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApplication1.Controllers.UsuarioDBController",
+    "ContainingType": "bibliotecaLAST.Controllers.UsuarioDBController",
     "Method": "UpdateUser",
     "RelativePath": "api/UsuarioDB/{id}",
     "HttpMethod": "PUT",
@@ -151,7 +151,7 @@
       },
       {
         "Name": "usuarioActualizado",
-        "Type": "WebApplication1.Controllers.Usuarios",
+        "Type": "bibliotecaLAST.Controllers.Usuarios",
         "IsRequired": true
       }
     ],

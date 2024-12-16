@@ -2,10 +2,10 @@
 using Microsoft.Data.SqlClient;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using static WebApplication1.Services.UsuarioDBService;
+using static bibliotecaLAST.Services.UsuarioDBService;
 
 
-namespace WebApplication1.Services
+namespace bibliotecaLAST.Services
 {
 
     public class UsuarioDBService : IUsuarioDBService

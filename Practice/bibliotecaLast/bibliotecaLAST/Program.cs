@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Data.SqlClient;
 using Dapper;
-using WebApplication1.Services;
+using bibliotecaLAST.Services;
 using bibliotecaLAST;
 
 var builder = WebApplication.CreateBuilder(args);

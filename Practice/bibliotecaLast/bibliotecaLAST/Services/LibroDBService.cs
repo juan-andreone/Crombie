@@ -2,11 +2,11 @@
 using Microsoft.Data.SqlClient;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using WebApplication1.Controllers;
-using static WebApplication1.Services.LibroDBService;
+using bibliotecaLAST.Controllers;
+using static bibliotecaLAST.Services.LibroDBService;
 
 
-namespace WebApplication1.Services
+namespace bibliotecaLAST.Services
 {
 
     public class LibroDBService : ILibroDBService

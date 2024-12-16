@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-namespace WebApplication1.Services
+namespace bibliotecaLAST.Services
 {
     public interface IUsuarioDBService
     {

@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebApplication1.Services;
+using bibliotecaLAST.Services;
 using System.Threading.Tasks;
+using bibliotecaLAST.Controllers;
 
-namespace WebApplication1.Controllers
+
+namespace bibliotecaLAST.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -73,13 +75,7 @@ namespace WebApplication1.Controllers
 
     }
 
-    public class Usuarios
-    {
-        public int Usuario { get; set; }
-        public string Nombre { get; set; }
-        public string TipoUsuario { get; set; }
-        
-    }
+   
 
 
 

@@ -86,11 +86,7 @@ namespace bibliotecaLAST.Services
             {
                 throw new ApplicationException($"Error al actualizar el libro: {ex.Message}");
             }
-        }
-
-
-        // Método para obtener todos los detalles del libro por su ID
-        
+        } 
 
         public async Task<Libro> GetLibroByIdAsync(int id)
         {
@@ -98,7 +94,7 @@ namespace bibliotecaLAST.Services
             {
                 var query = "SELECT ID, Nombre_Autor, Titulo, ISBN, Disponible FROM BookTable WHERE ID = @Id";
                 var libro = await _sqlConnection.QueryFirstOrDefaultAsync<Libro>(query, new { Id = id });
-                return libro; // Esto debería devolver el objeto Libro correctamente.
+                return libro; 
             }
             catch (Exception ex)
             {

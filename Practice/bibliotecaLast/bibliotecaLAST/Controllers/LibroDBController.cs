@@ -59,13 +59,11 @@ namespace bibliotecaLAST.Controllers
             return NoContent();
         }
 
-        // Endpoint para obtener los detalles completos de un libro por ID
        
 
         [HttpGet("detalles/{id}")]
         public async Task<IActionResult> GetLibroDetallesById(int id)
         {
-            // Asegurémonos de que estamos esperando el resultado asincrónico correctamente
             var libro = await _libroDBService.GetLibroByIdAsync(id);
 
             if (libro == null)

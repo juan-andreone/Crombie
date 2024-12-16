@@ -19,7 +19,7 @@
     "Parameters": [
       {
         "Name": "nuevoLibro",
-        "Type": "bibliotecaLAST.Controllers.Libro",
+        "Type": "bibliotecaLAST.Models.Libro",
         "IsRequired": true
       }
     ],
@@ -72,7 +72,7 @@
       },
       {
         "Name": "libroActualizado",
-        "Type": "bibliotecaLAST.Controllers.Libro",
+        "Type": "bibliotecaLAST.Models.Libro",
         "IsRequired": true
       }
     ],
@@ -98,7 +98,7 @@
     "Parameters": [
       {
         "Name": "nuevoUsuario",
-        "Type": "bibliotecaLAST.Controllers.Usuarios",
+        "Type": "bibliotecaLAST.Models.Usuarios",
         "IsRequired": true
       }
     ],
@@ -151,7 +151,7 @@
       },
       {
         "Name": "usuarioActualizado",
-        "Type": "bibliotecaLAST.Controllers.Usuarios",
+        "Type": "bibliotecaLAST.Models.Usuarios",
         "IsRequired": true
       }
     ],

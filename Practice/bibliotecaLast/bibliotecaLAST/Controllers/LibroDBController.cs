@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using bibliotecaLAST.Controllers;
+using bibliotecaLAST.Models;
 using bibliotecaLAST.Services;
 
 namespace bibliotecaLAST.Controllers

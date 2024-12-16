@@ -1,4 +1,4 @@
-﻿namespace bibliotecaLAST.Controllers
+﻿namespace bibliotecaLAST.Models
 {
     public class Libro
     {

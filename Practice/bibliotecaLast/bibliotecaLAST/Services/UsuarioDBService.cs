@@ -21,14 +21,14 @@ namespace bibliotecaLAST.Services
         {
             try
             {
-                // Consulta simple para obtener datos
+                
                 var query = "SELECT * FROM BibliotecaTable";
                 var result = await _sqlConnection.QueryAsync<string>(query);
                 return result;
             }
             catch (Exception ex)
             {
-                // Manejo de errores
+               
                 throw new ApplicationException($"Error al consultar la base de datos: {ex.Message}");
             }
         }

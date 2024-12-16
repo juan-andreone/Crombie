@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using bibliotecaLAST.Controllers;
 using static bibliotecaLAST.Services.LibroDBService;
+using bibliotecaLAST.Models;
 
 
 namespace bibliotecaLAST.Services
@@ -88,8 +89,24 @@ namespace bibliotecaLAST.Services
         }
 
 
+        // Método para obtener todos los detalles del libro por su ID
+        
 
-       
+        public async Task<Libro> GetLibroByIdAsync(int id)
+        {
+            try
+            {
+                var query = "SELECT ID, Nombre_Autor, Titulo, ISBN, Disponible FROM BookTable WHERE ID = @Id";
+                var libro = await _sqlConnection.QueryFirstOrDefaultAsync<Libro>(query, new { Id = id });
+                return libro; // Esto debería devolver el objeto Libro correctamente.
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException($"Error al consultar el libro: {ex.Message}");
+            }
+        }
+
+
 
     }
 

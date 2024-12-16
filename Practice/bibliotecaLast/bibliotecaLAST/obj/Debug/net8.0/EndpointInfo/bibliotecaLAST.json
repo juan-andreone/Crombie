@@ -130,6 +130,29 @@
         }
       }
     },
+    "/api/LibroDB/detalles/{id}": {
+      "get": {
+        "tags": [
+          "LibroDB"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Prestamo/tomar": {
       "post": {
         "tags": [

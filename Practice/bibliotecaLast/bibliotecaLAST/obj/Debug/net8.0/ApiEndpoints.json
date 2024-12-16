@@ -79,6 +79,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "bibliotecaLAST.Controllers.LibroDBController",
+    "Method": "GetLibroDetallesById",
+    "RelativePath": "api/LibroDB/detalles/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "bibliotecaLAST.Controllers.PrestamoController",
     "Method": "DevolverLibro",
     "RelativePath": "api/Prestamo/devolver",

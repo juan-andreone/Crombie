@@ -1,6 +1,6 @@
-﻿using Microsoft.Data.SqlClient;
+﻿﻿using Dapper;
+using Microsoft.Data.SqlClient;
 using System.Data;
-
 
 namespace bibliotecaLAST
 {
@@ -12,18 +12,28 @@ namespace bibliotecaLAST
         public DapperContext(IConfiguration configuration)
         {
             _configuration = configuration;
-            // Obtener de appsettings.json
+
             _connectionString = _configuration.GetConnectionString("DefaultConnection");
         }
 
-        public IDbConnection CreateConnection() =>
-            new SqlConnection(_connectionString);
+        public IDbConnection CreateConnection() => new SqlConnection(_connectionString);
+
+        public List<object> GetEntities(string query)
+        {
+            using var connection = CreateConnection();
+            {
+                var sql = query;
+
+                var response = connection.Query<object>(sql).ToList();
+
+                return response;
+            }
+        }
+
+            
+        
     }
 }
-
-
-
-
 
 
 

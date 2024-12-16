@@ -1,6 +1,5 @@
 using bibliotecaLAST.Logging;
 using bibliotecaLAST.Middlewares;
-using bibliotecaLAST.Services;
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -21,10 +20,10 @@ builder.Services.AddSingleton<DapperContext>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services
-    .AddScoped<LibroService>()
-    .AddScoped<UsuarioService>()
-    .AddScoped<ExcelService>();
+//builder.Services
+//    .AddScoped<LibroService>()
+//    .AddScoped<UsuarioService>()
+//    .AddScoped<ExcelService>();
 
 
 var logFilePath = Path.Combine(
@@ -44,7 +43,7 @@ builder.Services.AddSingleton<SqlConnection>(serviceProvider =>
     var connectionString = configuration.GetConnectionString("DefaultConnection");
     return new SqlConnection(connectionString);
 });
-builder.Services.AddScoped<IDatabaseService, DatabaseService>();
+builder.Services.AddScoped<IUsuarioDBService, UsuarioDBService>();
 
 builder.Services.AddScoped<ILibroDBService, LibroDBService>();
 

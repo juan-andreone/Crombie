@@ -2,17 +2,17 @@
 using Microsoft.Data.SqlClient;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using static WebApplication1.Services.DatabaseService;
+using static WebApplication1.Services.UsuarioDBService;
 
 
 namespace WebApplication1.Services
 {
 
-    public class DatabaseService : IDatabaseService
+    public class UsuarioDBService : IUsuarioDBService
     {
         private readonly SqlConnection _sqlConnection;
 
-        public DatabaseService(SqlConnection sqlConnection)
+        public UsuarioDBService(SqlConnection sqlConnection)
         {
             _sqlConnection = sqlConnection;
         }

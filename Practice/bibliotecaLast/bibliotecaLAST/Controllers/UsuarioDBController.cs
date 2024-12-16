@@ -6,11 +6,11 @@ namespace WebApplication1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SampleController : ControllerBase
+    public class UsuarioDBController : ControllerBase
     {
-        private readonly IDatabaseService _databaseService;
+        private readonly IUsuarioDBService _databaseService;
 
-        public SampleController(IDatabaseService databaseService)
+        public UsuarioDBController(IUsuarioDBService databaseService)
         {
             _databaseService = databaseService;
         }

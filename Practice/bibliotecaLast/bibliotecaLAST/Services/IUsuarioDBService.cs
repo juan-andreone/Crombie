@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 namespace WebApplication1.Services
 {
-    public interface IDatabaseService
+    public interface IUsuarioDBService
     {
         Task<IEnumerable<string>> GetNamesAsync();
         Task<string> GetNameByIdAsync(int id);

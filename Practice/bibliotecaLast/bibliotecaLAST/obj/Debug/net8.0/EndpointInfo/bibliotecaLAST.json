@@ -130,6 +130,70 @@
         }
       }
     },
+    "/api/Prestamo/tomar": {
+      "post": {
+        "tags": [
+          "Prestamo"
+        ],
+        "parameters": [
+          {
+            "name": "usuarioID",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "libroID",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Prestamo/devolver": {
+      "post": {
+        "tags": [
+          "Prestamo"
+        ],
+        "parameters": [
+          {
+            "name": "libroID",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Prestamo/historial": {
+      "get": {
+        "tags": [
+          "Prestamo"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/UsuarioDB": {
       "get": {
         "tags": [

@@ -79,6 +79,53 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "bibliotecaLAST.Controllers.PrestamoController",
+    "Method": "DevolverLibro",
+    "RelativePath": "api/Prestamo/devolver",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "libroID",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "bibliotecaLAST.Controllers.PrestamoController",
+    "Method": "ObtenerHistorial",
+    "RelativePath": "api/Prestamo/historial",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "bibliotecaLAST.Controllers.PrestamoController",
+    "Method": "TomarPrestado",
+    "RelativePath": "api/Prestamo/tomar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuarioID",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "libroID",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "bibliotecaLAST.Controllers.UsuarioDBController",
     "Method": "GetNames",
     "RelativePath": "api/UsuarioDB",

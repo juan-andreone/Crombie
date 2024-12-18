@@ -1,4 +1,5 @@
-﻿using Dapper;
+﻿using bibliotecaLAST.Models;
+using Dapper;
 using Microsoft.Data.SqlClient;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -32,6 +33,8 @@ namespace bibliotecaLAST.Services
                 throw new ApplicationException($"Error al consultar la base de datos: {ex.Message}");
             }
         }
+
+       
 
 
         public async Task<string> GetNameByIdAsync(int id)
@@ -89,6 +92,42 @@ namespace bibliotecaLAST.Services
             }
         }
 
+        public async Task<Usuarios> GetUsuarioConPrestamosAsync(int id)
+        {
+            try
+            {
+                var queryUsuario = "SELECT * FROM BibliotecaTable WHERE Usuario = @Id";
+                var queryPrestamos = @"
+            SELECT p.*, l.* 
+            FROM PrestamoTable p 
+            INNER JOIN BookTable l ON p.LibroID = l.ID
+            WHERE p.UsuarioID = @Id AND p.FechaDevolucion IS NULL"
+                ;
+                
+                var usuario = await _sqlConnection.QueryFirstOrDefaultAsync<Usuarios>(queryUsuario, new { Id = id });
 
+                if (usuario != null)
+                {
+                    var prestamos = await _sqlConnection.QueryAsync<Prestamo, Libro, Prestamo>(
+                        queryPrestamos,
+                        (prestamo, libro) =>
+                        {
+                            prestamo.Libro = libro;
+                            return prestamo;
+                        },
+                        new { Id = id },
+                        splitOn: "ID"
+                    );
+
+                    usuario.Prestamos = prestamos.ToList();
+                }
+
+                return usuario;
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException($"Error al obtener el usuario con préstamos: {ex.Message}");
+            }
+        }
     }
 }

@@ -9,5 +9,7 @@ namespace bibliotecaLAST.Services
         Task TomarPrestadoAsync(int usuarioID, int libroID);
         Task DevolverLibroAsync(int libroID);
         Task<IEnumerable<Prestamo>> ObtenerHistorialAsync();
+        Task DevolverTodos();
+
     }
 }

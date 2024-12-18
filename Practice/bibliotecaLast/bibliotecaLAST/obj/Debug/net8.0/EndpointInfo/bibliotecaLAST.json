@@ -217,6 +217,18 @@
         }
       }
     },
+    "/api/Prestamo/eliminar-registros": {
+      "delete": {
+        "tags": [
+          "Prestamo"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/UsuarioDB": {
       "get": {
         "tags": [
@@ -341,6 +353,29 @@
           }
         }
       }
+    },
+    "/api/UsuarioDB/{id}/prestamos": {
+      "get": {
+        "tags": [
+          "UsuarioDB"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -370,6 +405,36 @@
         },
         "additionalProperties": false
       },
+      "Prestamo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "usuarioID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "libroID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fechaPrestamo": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fechaDevolucion": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "libro": {
+            "$ref": "#/components/schemas/Libro"
+          }
+        },
+        "additionalProperties": false
+      },
       "Usuarios": {
         "type": "object",
         "properties": {
@@ -383,6 +448,13 @@
           },
           "tipoUsuario": {
             "type": "string",
+            "nullable": true
+          },
+          "prestamos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Prestamo"
+            },
             "nullable": true
           }
         },

@@ -20,11 +20,9 @@ namespace bibliotecaLAST.Services
         {
             try
             {
-                // Cambiar estado del libro a no disponible
                 var updateLibroQuery = "UPDATE BookTable SET Disponible = 0 WHERE ID = @LibroID";
                 await _sqlConnection.ExecuteAsync(updateLibroQuery, new { LibroID = libroID });
 
-                // Registrar el préstamo en el historial
                 var insertPrestamoQuery = "INSERT INTO PrestamoTable (UsuarioID, LibroID, FechaPrestamo) VALUES (@UsuarioID, @LibroID, @FechaPrestamo)";
                 await _sqlConnection.ExecuteAsync(insertPrestamoQuery, new { UsuarioID = usuarioID, LibroID = libroID, FechaPrestamo = DateTime.Now });
             }
@@ -38,11 +36,9 @@ namespace bibliotecaLAST.Services
         {
             try
             {
-                // Cambiar estado del libro a disponible
                 var updateLibroQuery = "UPDATE BookTable SET Disponible = 1 WHERE ID = @LibroID";
                 await _sqlConnection.ExecuteAsync(updateLibroQuery, new { LibroID = libroID });
 
-                // Actualizar la fecha de devolución en el historial
                 var updatePrestamoQuery = "UPDATE PrestamoTable SET FechaDevolucion = @FechaDevolucion WHERE LibroID = @LibroID AND FechaDevolucion IS NULL";
                 await _sqlConnection.ExecuteAsync(updatePrestamoQuery, new { FechaDevolucion = DateTime.Now, LibroID = libroID });
             }
@@ -65,5 +61,40 @@ namespace bibliotecaLAST.Services
                 throw new ApplicationException($"Error al obtener el historial: {ex.Message}");
             }
         }
+        
+
+        public async Task DevolverTodos()
+        {
+            try
+            {
+                var queryLibrosPrestados = @"
+            SELECT p.LibroID
+            FROM PrestamoTable p
+            WHERE p.FechaDevolucion IS NULL";
+
+                var librosPrestados = await _sqlConnection.QueryAsync<int>(queryLibrosPrestados);
+
+                if (librosPrestados is not null && librosPrestados.Any())
+                {
+                    var queryUpdateLibros = @"
+                UPDATE BookTable
+                SET Disponible = 1
+                WHERE ID IN @LibrosPrestados";
+                    await _sqlConnection.ExecuteAsync(queryUpdateLibros, new { LibrosPrestados = librosPrestados });
+
+                    var queryUpdatePrestamos = @"
+                UPDATE PrestamoTable
+                SET FechaDevolucion = @FechaDevolucion
+                WHERE LibroID IN @LibrosPrestados AND FechaDevolucion IS NULL";
+                    await _sqlConnection.ExecuteAsync(queryUpdatePrestamos, new { FechaDevolucion = DateTime.Now, LibrosPrestados = librosPrestados });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException($"Error al devolver los libros prestados: {ex.Message}");
+            }
+        }
+
     }
 }
+

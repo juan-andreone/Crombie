@@ -71,10 +71,20 @@ namespace bibliotecaLAST.Controllers
             return NoContent();  
         }
 
+        [HttpGet("{id}/prestamos")]
+        public async Task<IActionResult> GetUsuarioConPrestamos(int id)
+        {
+            var usuario = await _databaseService.GetUsuarioConPrestamosAsync(id);
+
+            if (usuario == null)
+                return NotFound("Usuario no encontrado.");
+
+            return Ok(usuario);
+        }
 
     }
 
-   
+
 
 
 

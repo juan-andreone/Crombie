@@ -20,7 +20,7 @@ namespace bibliotecaLAST.Controllers
         public async Task<IActionResult> TomarPrestado([FromQuery] int usuarioID, [FromQuery] int libroID)
         {
             await _prestamoService.TomarPrestadoAsync(usuarioID, libroID);
-            return Ok("El libro ha sido tomado prestado.");
+            return Ok("El libro ha sido prestado.");
         }
 
         [HttpPost("devolver")]
@@ -36,5 +36,20 @@ namespace bibliotecaLAST.Controllers
             var historial = await _prestamoService.ObtenerHistorialAsync();
             return Ok(historial);
         }
+
+        [HttpDelete("eliminar-registros")]
+        public async Task<IActionResult> EliminarRegistros()
+        {
+            try
+            {
+                await _prestamoService.DevolverTodos();
+                return Ok("los libros prestados han sido devueltos.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error al realizar la operación: {ex.Message}");
+            }
+        }
+
     }
 }

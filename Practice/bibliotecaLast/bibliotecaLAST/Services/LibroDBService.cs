@@ -19,22 +19,7 @@ namespace bibliotecaLAST.Services
             _sqlConnection = sqlConnection;
         }
 
-        //// Método para verificar cuántos libros tiene un usuario prestados y si puede tomar más
-        //public async Task<bool> PuedeTomarPrestadoAsync(int usuarioID, string tipoUsuario)
-        //{
-        //    // Límite de libros dependiendo del tipo de usuario
-        //    int limiteLibros = tipoUsuario == "Estudiante" ? 3 : 5;
-
-        //    // Consulta para obtener el número de libros prestados por el usuario
-        //    var query = "SELECT COUNT(*) FROM PrestamoTable WHERE UsuarioID = @UsuarioID AND FechaDevolucion IS NULL";
-        //    var librosPrestados = await _sqlConnection.ExecuteScalarAsync<int>(query, new { UsuarioID = usuarioID });
-
-        //    // Si el usuario no ha superado el límite, puede tomar prestado el libro
-        //    return librosPrestados < limiteLibros;
-        //}
-
-
-
+       
 
         public async Task<IEnumerable<string>> GetNombresAsync()
         {

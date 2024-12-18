@@ -16,28 +16,28 @@ namespace bibliotecaLAST.Controllers
             _prestamoService = prestamoService;
         }
 
-        [HttpPost("tomar")]
+        [HttpPost("Prestar")]
         public async Task<IActionResult> TomarPrestado([FromQuery] int usuarioID, [FromQuery] int libroID)
         {
             await _prestamoService.TomarPrestadoAsync(usuarioID, libroID);
             return Ok("El libro ha sido prestado.");
         }
 
-        [HttpPost("devolver")]
+        [HttpPost("Devolver")]
         public async Task<IActionResult> DevolverLibro([FromQuery] int libroID)
         {
             await _prestamoService.DevolverLibroAsync(libroID);
             return Ok("El libro ha sido devuelto.");
         }
 
-        [HttpGet("historial")]
+        [HttpGet("Historial")]
         public async Task<IActionResult> ObtenerHistorial()
         {
             var historial = await _prestamoService.ObtenerHistorialAsync();
             return Ok(historial);
         }
 
-        [HttpDelete("eliminar-registros")]
+        [HttpDelete("Devolver-Todos")]
         public async Task<IActionResult> EliminarRegistros()
         {
             try

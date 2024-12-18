@@ -33,21 +33,21 @@ namespace bibliotecaLAST.Controllers
             return Ok(nombre);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("Borrar/{id}")]
         public async Task<IActionResult> DeleteLibro(int id)
         {
             await _libroDBService.DeleteLibroByIdAsync(id);
             return NoContent();
         }
 
-        [HttpPost]
+        [HttpPost ("Crear")]
         public async Task<IActionResult> CreateLibro([FromBody] Libro nuevoLibro)
         {
             await _libroDBService.CreateLibroAsync(nuevoLibro.ID, nuevoLibro.Nombre_Autor, nuevoLibro.Titulo, nuevoLibro.ISBN, nuevoLibro.Disponible);
             return CreatedAtAction(nameof(GetById), new { id = nuevoLibro.ID }, nuevoLibro);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("Actualizar/{id}")]
         public async Task<IActionResult> UpdateLibro(int id, [FromBody] Libro libroActualizado)
         {
             if (id != libroActualizado.ID)
@@ -61,7 +61,7 @@ namespace bibliotecaLAST.Controllers
 
        
 
-        [HttpGet("detalles/{id}")]
+        [HttpGet("VerDetalles/{id}")]
         public async Task<IActionResult> GetLibroDetallesById(int id)
         {
             var libro = await _libroDBService.GetLibroByIdAsync(id);

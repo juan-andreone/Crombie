@@ -36,7 +36,7 @@ namespace bibliotecaLAST.Controllers
         }
 
 
-        [HttpDelete("{id}")]
+        [HttpDelete("Borrar/{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
             await _databaseService.DeleteUserByIdAsync(id);
@@ -45,7 +45,7 @@ namespace bibliotecaLAST.Controllers
 
 
 
-        [HttpPost]
+        [HttpPost("Crear")]
         public async Task<IActionResult> CreateUser([FromBody] Usuarios nuevoUsuario)
         {
             
@@ -56,7 +56,7 @@ namespace bibliotecaLAST.Controllers
         }
 
 
-        [HttpPut("{id}")]
+        [HttpPut("Actualizar/{id}")]
         public async Task<IActionResult> UpdateUser(int id, [FromBody] Usuarios usuarioActualizado)
         {
             
@@ -71,7 +71,7 @@ namespace bibliotecaLAST.Controllers
             return NoContent();  
         }
 
-        [HttpGet("{id}/prestamos")]
+        [HttpGet("VerPrestamosDeUsuario/{id}")]
         public async Task<IActionResult> GetUsuarioConPrestamos(int id)
         {
             var usuario = await _databaseService.GetUsuarioConPrestamosAsync(id);

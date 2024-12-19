@@ -1,5 +1,31 @@
 [
   {
+    "ContainingType": "bibliotecaLAST.Controllers.EstudianteController",
+    "Method": "CrearEstudiante",
+    "RelativePath": "api/Estudiante/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nuevoEstudiante",
+        "Type": "bibliotecaLAST.Models.EstudianteModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "bibliotecaLAST.Controllers.EstudianteController",
+    "Method": "ObtenerEstudiantes",
+    "RelativePath": "api/Estudiante/Lista",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "bibliotecaLAST.Controllers.LibroDBController",
     "Method": "GetNombres",
     "RelativePath": "api/LibroDB",
@@ -152,6 +178,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "bibliotecaLAST.Controllers.ProfesorController",
+    "Method": "CrearProfesor",
+    "RelativePath": "api/Profesor/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nuevoProfesor",
+        "Type": "bibliotecaLAST.Models.ProfesorModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "bibliotecaLAST.Controllers.ProfesorController",
+    "Method": "ObtenerProfesores",
+    "RelativePath": "api/Profesor/Lista",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "bibliotecaLAST.Controllers.UsuarioDBController",
     "Method": "GetNames",
     "RelativePath": "api/UsuarioDB",
@@ -212,74 +264,6 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "bibliotecaLAST.Controllers.UsuarioDBController",
-    "Method": "CreateUser",
-    "RelativePath": "api/UsuarioDB/Crear",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "nuevoUsuario",
-        "Type": "bibliotecaLAST.Models.Usuarios",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "bibliotecaLAST.Controllers.UsuarioDBController",
-    "Method": "CrearEstudiante",
-    "RelativePath": "api/UsuarioDB/CrearEstudiante",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "nuevoEstudiante",
-        "Type": "bibliotecaLAST.Models.EstudianteModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "bibliotecaLAST.Controllers.UsuarioDBController",
-    "Method": "CrearProfesor",
-    "RelativePath": "api/UsuarioDB/CrearProfesor",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "nuevoProfesor",
-        "Type": "bibliotecaLAST.Models.ProfesorModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "bibliotecaLAST.Controllers.UsuarioDBController",
-    "Method": "ObtenerEstudiantes",
-    "RelativePath": "api/UsuarioDB/Estudiantes",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "bibliotecaLAST.Controllers.UsuarioDBController",
-    "Method": "ObtenerProfesores",
-    "RelativePath": "api/UsuarioDB/Profesores",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": []
   },
   {

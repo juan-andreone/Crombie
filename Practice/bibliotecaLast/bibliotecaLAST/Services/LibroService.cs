@@ -20,11 +20,6 @@ namespace bibliotecaLAST.Services
             _sqlConnection = sqlConnection;
         }
 
-       
-
-
-
-     
 
         public async Task DeleteLibroByIdAsync(int id)
         {

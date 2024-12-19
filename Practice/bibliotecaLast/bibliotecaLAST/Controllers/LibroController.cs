@@ -17,10 +17,6 @@ namespace bibliotecaLAST.Controllers
         }
 
 
-
-
-
-
         [HttpDelete("Borrar/{id}")]
         public async Task<IActionResult> DeleteLibro(int id)
         {

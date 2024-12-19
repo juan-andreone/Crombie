@@ -34,7 +34,7 @@ namespace bibliotecaLAST.Controllers
         [HttpPost("Crear")]
         public async Task<IActionResult> CrearProfesor([FromBody] ProfesorModel nuevoProfesor)
         {
-            if (nuevoProfesor == null) return BadRequest("El usuario no puede ser nulo.");
+            if (nuevoProfesor == null) return BadRequest("Ingrese los datos correctamente.");
 
             await _usuarioService.CreateUserAsync(nuevoProfesor.Usuario, nuevoProfesor.Nombre, "Profesor");
 

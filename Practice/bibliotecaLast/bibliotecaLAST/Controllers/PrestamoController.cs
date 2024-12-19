@@ -21,7 +21,7 @@ namespace bibliotecaLAST.Controllers
             try
             {
                 await _prestamoService.TomarPrestadoAsync(usuarioID, libroID);
-                return Ok("El libro ha sido prestado.");
+                return Ok("Libro prestado correctamente.");
             }
             catch (ApplicationException ex)
             {
@@ -35,7 +35,7 @@ namespace bibliotecaLAST.Controllers
         public async Task<IActionResult> DevolverLibro([FromQuery] int libroID)
         {
             await _prestamoService.DevolverLibroAsync(libroID);
-            return Ok("El libro ha sido devuelto.");
+            return Ok("Libro devuelto correctamente.");
         }
 
         [HttpGet("Historial")]
@@ -51,7 +51,7 @@ namespace bibliotecaLAST.Controllers
             try
             {
                 await _prestamoService.DevolverTodos();
-                return Ok("los libros prestados han sido devueltos.");
+                return Ok("Libros prestados devueltos correctamente.");
             }
             catch (Exception ex)
             {

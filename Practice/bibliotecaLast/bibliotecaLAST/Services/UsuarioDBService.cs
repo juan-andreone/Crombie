@@ -22,19 +22,19 @@ namespace bibliotecaLAST.Services
         {
             try
             {
-                
+
                 var query = "SELECT * FROM BibliotecaTable";
                 var result = await _sqlConnection.QueryAsync<string>(query);
                 return result;
             }
             catch (Exception ex)
             {
-               
+
                 throw new ApplicationException($"Error al consultar la base de datos: {ex.Message}");
             }
         }
 
-       
+
 
 
         public async Task<string> GetNameByIdAsync(int id)
@@ -103,7 +103,7 @@ namespace bibliotecaLAST.Services
             INNER JOIN BookTable l ON p.LibroID = l.ID
             WHERE p.UsuarioID = @Id AND p.FechaDevolucion IS NULL"
                 ;
-                
+
                 var usuario = await _sqlConnection.QueryFirstOrDefaultAsync<Usuarios>(queryUsuario, new { Id = id });
 
                 if (usuario != null)
@@ -129,5 +129,45 @@ namespace bibliotecaLAST.Services
                 throw new ApplicationException($"Error al obtener el usuario con préstamos: {ex.Message}");
             }
         }
+
+        public async Task RegistrarProfesorAsync(int usuario, string nombre)
+        {
+            await CreateUserAsync(usuario, nombre, "Profesor");
+        }
+
+        public async Task RegistrarEstudianteAsync(int usuario, string nombre)
+        {
+            await CreateUserAsync(usuario, nombre, "Estudiante");
+        }
+
+        public async Task<IEnumerable<Usuarios>> ObtenerEstudiantesAsync()
+        {
+            try
+            {
+                var query = "SELECT * FROM BibliotecaTable WHERE TipoUsuario = 'Estudiante'";
+                var estudiantes = await _sqlConnection.QueryAsync<Usuarios>(query);
+                return estudiantes;
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException($"Error al obtener los estudiantes: {ex.Message}");
+            }
+        }
+
+        public async Task<IEnumerable<Usuarios>> ObtenerProfesoresAsync()
+        {
+            try
+            {
+                var query = "SELECT * FROM BibliotecaTable WHERE TipoUsuario = 'Profesor'";
+                var profesores = await _sqlConnection.QueryAsync<Usuarios>(query);
+                return profesores;
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException($"Error al obtener los profesores: {ex.Message}");
+            }
+        }
+
+
     }
 }

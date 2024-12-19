@@ -14,5 +14,11 @@ namespace bibliotecaLAST.Services
 
         Task UpdateUserAsync(int usuario, string nombre, string tipoUsuario);
         Task<Usuarios> GetUsuarioConPrestamosAsync(int id);
+
+        Task RegistrarProfesorAsync(int usuario, string nombre);
+        Task RegistrarEstudianteAsync(int usuario, string nombre);
+
+        Task<IEnumerable<Usuarios>> ObtenerEstudiantesAsync();
+        Task<IEnumerable<Usuarios>> ObtenerProfesoresAsync();
     }
 }

@@ -388,10 +388,110 @@
           }
         }
       }
+    },
+    "/api/UsuarioDB/CrearProfesor": {
+      "post": {
+        "tags": [
+          "UsuarioDB"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProfesorModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProfesorModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProfesorModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/UsuarioDB/CrearEstudiante": {
+      "post": {
+        "tags": [
+          "UsuarioDB"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EstudianteModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EstudianteModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EstudianteModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/UsuarioDB/Estudiantes": {
+      "get": {
+        "tags": [
+          "UsuarioDB"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/UsuarioDB/Profesores": {
+      "get": {
+        "tags": [
+          "UsuarioDB"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "EstudianteModel": {
+        "type": "object",
+        "properties": {
+          "usuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Libro": {
         "type": "object",
         "properties": {
@@ -443,6 +543,20 @@
           },
           "libro": {
             "$ref": "#/components/schemas/Libro"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProfesorModel": {
+        "type": "object",
+        "properties": {
+          "usuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

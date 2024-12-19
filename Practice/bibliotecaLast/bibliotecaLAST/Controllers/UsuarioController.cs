@@ -8,11 +8,11 @@ namespace bibliotecaLAST.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsuarioDBController : ControllerBase
+    public class UsuarioController : ControllerBase
     {
         private readonly IUsuarioDBService _databaseService;
 
-        public UsuarioDBController(IUsuarioDBService databaseService)
+        public UsuarioController(IUsuarioDBService databaseService)
         {
             _databaseService = databaseService;
         }

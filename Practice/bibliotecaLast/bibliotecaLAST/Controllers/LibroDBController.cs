@@ -16,22 +16,10 @@ namespace bibliotecaLAST.Controllers
             _libroDBService = libroDBService;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetNombres()
-        {
-            var nombres = await _libroDBService.GetNombresAsync();
-            return Ok(nombres);
-        }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
-        {
-            var nombre = await _libroDBService.GetNombreByIdAsync(id);
-            if (string.IsNullOrEmpty(nombre))
-                return NotFound();
 
-            return Ok(nombre);
-        }
+       
+
 
         [HttpDelete("Borrar/{id}")]
         public async Task<IActionResult> DeleteLibro(int id)
@@ -40,11 +28,11 @@ namespace bibliotecaLAST.Controllers
             return NoContent();
         }
 
-        [HttpPost ("Crear")]
+        [HttpPost("Crear")]
         public async Task<IActionResult> CreateLibro([FromBody] Libro nuevoLibro)
         {
             await _libroDBService.CreateLibroAsync(nuevoLibro.ID, nuevoLibro.Nombre_Autor, nuevoLibro.Titulo, nuevoLibro.ISBN, nuevoLibro.Disponible);
-            return CreatedAtAction(nameof(GetById), new { id = nuevoLibro.ID }, nuevoLibro);
+            return CreatedAtAction(nameof(GetLibroDetallesById), new { id = nuevoLibro.ID }, nuevoLibro);
         }
 
         [HttpPut("Actualizar/{id}")]
@@ -59,9 +47,9 @@ namespace bibliotecaLAST.Controllers
             return NoContent();
         }
 
-       
 
-        [HttpGet("VerDetalles/{id}")]
+
+        [HttpGet("VerLibroPorID/{id}")]
         public async Task<IActionResult> GetLibroDetallesById(int id)
         {
             var libro = await _libroDBService.GetLibroByIdAsync(id);
@@ -73,7 +61,21 @@ namespace bibliotecaLAST.Controllers
 
             return Ok(libro);
         }
-    }
+    
 
-   
+
+    [HttpGet("VerLista")]
+        public async Task<IActionResult> GetAllLibros()
+        {
+            var libros = await _libroDBService.GetAllLibrosAsync();
+            if (libros == null || !libros.Any())
+            {
+                return NotFound("No se encontraron libros.");
+            }
+
+            return Ok(libros);
+        }
+
+
+    }
 }

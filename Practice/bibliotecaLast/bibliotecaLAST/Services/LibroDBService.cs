@@ -35,18 +35,7 @@ namespace bibliotecaLAST.Services
             }
         }
 
-        public async Task<string> GetNombreByIdAsync(int id)
-        {
-            try
-            {
-                var query = "SELECT Nombre_Autor FROM BookTable WHERE ID = @Id";
-                return await _sqlConnection.QueryFirstOrDefaultAsync<string>(query, new { Id = id });
-            }
-            catch (Exception ex)
-            {
-                throw new ApplicationException($"Error al consultar la base de datos: {ex.Message}");
-            }
-        }
+     
 
         public async Task DeleteLibroByIdAsync(int id)
         {
@@ -104,7 +93,20 @@ namespace bibliotecaLAST.Services
             }
         }
 
-        
+
+        public async Task<IEnumerable<Libro>> GetAllLibrosAsync()
+        {
+            try
+            {
+                var query = "SELECT * FROM BookTable";
+                var libros = await _sqlConnection.QueryAsync<Libro>(query);
+                return libros;
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException($"Error al obtener los libros: {ex.Message}");
+            }
+        }
 
 
 

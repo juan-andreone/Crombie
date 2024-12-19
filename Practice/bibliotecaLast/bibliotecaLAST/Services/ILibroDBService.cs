@@ -7,7 +7,6 @@ namespace bibliotecaLAST.Services
     public interface ILibroDBService
     {
         Task<IEnumerable<string>> GetNombresAsync();
-        Task<string> GetNombreByIdAsync(int id);
 
         Task DeleteLibroByIdAsync(int id);
 
@@ -15,5 +14,7 @@ namespace bibliotecaLAST.Services
 
         Task UpdateLibroAsync(int id, string nombre, string titulo, string isbn, bool disponible);
         Task<Libro> GetLibroByIdAsync(int id);
+
+        Task<IEnumerable<Libro>> GetAllLibrosAsync();
     }
 }

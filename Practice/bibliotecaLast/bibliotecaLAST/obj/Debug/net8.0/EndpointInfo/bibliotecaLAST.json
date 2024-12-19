@@ -48,41 +48,6 @@
         }
       }
     },
-    "/api/LibroDB": {
-      "get": {
-        "tags": [
-          "LibroDB"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/LibroDB/{id}": {
-      "get": {
-        "tags": [
-          "LibroDB"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/LibroDB/Borrar/{id}": {
       "delete": {
         "tags": [
@@ -179,7 +144,7 @@
         }
       }
     },
-    "/api/LibroDB/VerDetalles/{id}": {
+    "/api/LibroDB/VerLibroPorID/{id}": {
       "get": {
         "tags": [
           "LibroDB"
@@ -194,6 +159,18 @@
               "format": "int32"
             }
           }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/LibroDB/VerLista": {
+      "get": {
+        "tags": [
+          "LibroDB"
         ],
         "responses": {
           "200": {
@@ -321,10 +298,10 @@
         }
       }
     },
-    "/api/UsuarioDB": {
+    "/api/Usuario": {
       "get": {
         "tags": [
-          "UsuarioDB"
+          "Usuario"
         ],
         "responses": {
           "200": {
@@ -333,10 +310,10 @@
         }
       }
     },
-    "/api/UsuarioDB/{id}": {
+    "/api/Usuario/{id}": {
       "get": {
         "tags": [
-          "UsuarioDB"
+          "Usuario"
         ],
         "parameters": [
           {
@@ -356,10 +333,10 @@
         }
       }
     },
-    "/api/UsuarioDB/Borrar/{id}": {
+    "/api/Usuario/Borrar/{id}": {
       "delete": {
         "tags": [
-          "UsuarioDB"
+          "Usuario"
         ],
         "parameters": [
           {
@@ -379,10 +356,10 @@
         }
       }
     },
-    "/api/UsuarioDB/Actualizar/{id}": {
+    "/api/Usuario/Actualizar/{id}": {
       "put": {
         "tags": [
-          "UsuarioDB"
+          "Usuario"
         ],
         "parameters": [
           {
@@ -421,10 +398,10 @@
         }
       }
     },
-    "/api/UsuarioDB/VerPrestamosDeUsuario/{id}": {
+    "/api/Usuario/VerPrestamosDeUsuario/{id}": {
       "get": {
         "tags": [
-          "UsuarioDB"
+          "Usuario"
         ],
         "parameters": [
           {

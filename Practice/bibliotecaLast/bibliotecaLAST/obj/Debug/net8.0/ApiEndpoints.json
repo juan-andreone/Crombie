@@ -27,32 +27,6 @@
   },
   {
     "ContainingType": "bibliotecaLAST.Controllers.LibroDBController",
-    "Method": "GetNombres",
-    "RelativePath": "api/LibroDB",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "bibliotecaLAST.Controllers.LibroDBController",
-    "Method": "GetById",
-    "RelativePath": "api/LibroDB/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "bibliotecaLAST.Controllers.LibroDBController",
     "Method": "UpdateLibro",
     "RelativePath": "api/LibroDB/Actualizar/{id}",
     "HttpMethod": "PUT",
@@ -107,7 +81,7 @@
   {
     "ContainingType": "bibliotecaLAST.Controllers.LibroDBController",
     "Method": "GetLibroDetallesById",
-    "RelativePath": "api/LibroDB/VerDetalles/{id}",
+    "RelativePath": "api/LibroDB/VerLibroPorID/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -118,6 +92,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "bibliotecaLAST.Controllers.LibroDBController",
+    "Method": "GetAllLibros",
+    "RelativePath": "api/LibroDB/VerLista",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -204,9 +188,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "bibliotecaLAST.Controllers.UsuarioDBController",
+    "ContainingType": "bibliotecaLAST.Controllers.UsuarioController",
     "Method": "GetNames",
-    "RelativePath": "api/UsuarioDB",
+    "RelativePath": "api/Usuario",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -214,9 +198,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "bibliotecaLAST.Controllers.UsuarioDBController",
+    "ContainingType": "bibliotecaLAST.Controllers.UsuarioController",
     "Method": "GetById",
-    "RelativePath": "api/UsuarioDB/{id}",
+    "RelativePath": "api/Usuario/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -230,9 +214,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "bibliotecaLAST.Controllers.UsuarioDBController",
+    "ContainingType": "bibliotecaLAST.Controllers.UsuarioController",
     "Method": "UpdateUser",
-    "RelativePath": "api/UsuarioDB/Actualizar/{id}",
+    "RelativePath": "api/Usuario/Actualizar/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -251,9 +235,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "bibliotecaLAST.Controllers.UsuarioDBController",
+    "ContainingType": "bibliotecaLAST.Controllers.UsuarioController",
     "Method": "DeleteUser",
-    "RelativePath": "api/UsuarioDB/Borrar/{id}",
+    "RelativePath": "api/Usuario/Borrar/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -267,9 +251,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "bibliotecaLAST.Controllers.UsuarioDBController",
+    "ContainingType": "bibliotecaLAST.Controllers.UsuarioController",
     "Method": "GetUsuarioConPrestamos",
-    "RelativePath": "api/UsuarioDB/VerPrestamosDeUsuario/{id}",
+    "RelativePath": "api/Usuario/VerPrestamosDeUsuario/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

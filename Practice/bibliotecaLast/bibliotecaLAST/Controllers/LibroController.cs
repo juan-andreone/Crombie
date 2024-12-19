@@ -18,7 +18,7 @@ namespace bibliotecaLAST.Controllers
 
 
 
-       
+
 
 
         [HttpDelete("Borrar/{id}")]
@@ -61,10 +61,10 @@ namespace bibliotecaLAST.Controllers
 
             return Ok(libro);
         }
-    
 
 
-    [HttpGet("VerLista")]
+
+        [HttpGet("VerLista")]
         public async Task<IActionResult> GetAllLibros()
         {
             var libros = await _libroDBService.GetAllLibrosAsync();

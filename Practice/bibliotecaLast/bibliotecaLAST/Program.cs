@@ -17,7 +17,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddSingleton<DapperContext>();
 builder.Services.AddScoped<IPrestamoService, PrestamoService>();
-builder.Services.AddScoped<ILibroDBService, LibroDBService>();
+builder.Services.AddScoped<ILibroService, LibroService>();
 
 
 
@@ -44,9 +44,9 @@ builder.Services.AddSingleton<SqlConnection>(serviceProvider =>
     var connectionString = configuration.GetConnectionString("DefaultConnection");
     return new SqlConnection(connectionString);
 });
-builder.Services.AddScoped<IUsuarioDBService, UsuarioDBService>();
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 
-builder.Services.AddScoped<ILibroDBService, LibroDBService>();
+builder.Services.AddScoped<ILibroService, LibroService>();
 
 
 var app = builder.Build();

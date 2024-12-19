@@ -10,9 +10,9 @@ namespace bibliotecaLAST.Controllers
     [ApiController]
     public class ProfesorController : ControllerBase
     {
-        private readonly IUsuarioDBService _usuarioService;
+        private readonly IUsuarioService _usuarioService;
 
-        public ProfesorController(IUsuarioDBService usuarioService)
+        public ProfesorController(IUsuarioService usuarioService)
         {
             _usuarioService = usuarioService;
         }

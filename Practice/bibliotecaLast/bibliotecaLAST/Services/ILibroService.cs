@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 
 namespace bibliotecaLAST.Services
 {
-    public interface ILibroDBService
+    public interface ILibroService
     {
-        Task<IEnumerable<string>> GetNombresAsync();
+
 
         Task DeleteLibroByIdAsync(int id);
 

@@ -8,44 +8,24 @@ namespace bibliotecaLAST.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class UsuarioController : ControllerBase
     {
-        private readonly IUsuarioDBService _databaseService;
+        private readonly IUsuarioService _databaseService;
 
-        public UsuarioController(IUsuarioDBService databaseService)
+        public UsuarioController(IUsuarioService databaseService)
         {
             _databaseService = databaseService;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetNames()
-        {
-            var names = await _databaseService.GetNamesAsync();
-            return Ok(names);
-        }
-
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
-        {
-            var name = await _databaseService.GetNameByIdAsync(id);
-            if (string.IsNullOrEmpty(name))  
-                return NotFound();
-
-            return Ok(name); 
-        }
-
 
         [HttpDelete("Borrar/{id}")]
+
         public async Task<IActionResult> DeleteUser(int id)
         {
             await _databaseService.DeleteUserByIdAsync(id);
             return NoContent(); 
         }
-
-
-
-        
 
 
         [HttpPut("Actualizar/{id}")]
@@ -63,7 +43,7 @@ namespace bibliotecaLAST.Controllers
             return NoContent();  
         }
 
-        [HttpGet("VerPrestamosDeUsuario/{id}")]
+        [HttpGet("VerUsuarioPorID/{id}")]
         public async Task<IActionResult> GetUsuarioConPrestamos(int id)
         {
             var usuario = await _databaseService.GetUsuarioConPrestamosAsync(id);
@@ -73,10 +53,20 @@ namespace bibliotecaLAST.Controllers
 
             return Ok(usuario);
         }
-        
 
-        
-        
+
+        [HttpGet("VerLista")]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var usuarios = await _databaseService.GetAllUsersAsync();
+            if (usuarios == null || !usuarios.Any())
+            {
+                return NotFound("No se encontraron usuarios.");
+            }
+
+            return Ok(usuarios);
+        }
+
 
     }
 

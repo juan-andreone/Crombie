@@ -48,10 +48,10 @@
         }
       }
     },
-    "/api/LibroDB/Borrar/{id}": {
+    "/api/Libro/Borrar/{id}": {
       "delete": {
         "tags": [
-          "LibroDB"
+          "Libro"
         ],
         "parameters": [
           {
@@ -71,10 +71,10 @@
         }
       }
     },
-    "/api/LibroDB/Crear": {
+    "/api/Libro/Crear": {
       "post": {
         "tags": [
-          "LibroDB"
+          "Libro"
         ],
         "requestBody": {
           "content": {
@@ -102,10 +102,10 @@
         }
       }
     },
-    "/api/LibroDB/Actualizar/{id}": {
+    "/api/Libro/Actualizar/{id}": {
       "put": {
         "tags": [
-          "LibroDB"
+          "Libro"
         ],
         "parameters": [
           {
@@ -144,10 +144,10 @@
         }
       }
     },
-    "/api/LibroDB/VerLibroPorID/{id}": {
+    "/api/Libro/VerLibroPorID/{id}": {
       "get": {
         "tags": [
-          "LibroDB"
+          "Libro"
         ],
         "parameters": [
           {
@@ -167,10 +167,10 @@
         }
       }
     },
-    "/api/LibroDB/VerLista": {
+    "/api/Libro/VerLista": {
       "get": {
         "tags": [
-          "LibroDB"
+          "Libro"
         ],
         "responses": {
           "200": {
@@ -298,41 +298,6 @@
         }
       }
     },
-    "/api/Usuario": {
-      "get": {
-        "tags": [
-          "Usuario"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Usuario/{id}": {
-      "get": {
-        "tags": [
-          "Usuario"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/Usuario/Borrar/{id}": {
       "delete": {
         "tags": [
@@ -398,7 +363,7 @@
         }
       }
     },
-    "/api/Usuario/VerPrestamosDeUsuario/{id}": {
+    "/api/Usuario/VerUsuarioPorID/{id}": {
       "get": {
         "tags": [
           "Usuario"
@@ -413,6 +378,18 @@
               "format": "int32"
             }
           }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Usuario/VerLista": {
+      "get": {
+        "tags": [
+          "Usuario"
         ],
         "responses": {
           "200": {

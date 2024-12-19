@@ -7,11 +7,11 @@ namespace bibliotecaLAST.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LibroDBController : ControllerBase
+    public class LibroController : ControllerBase
     {
-        private readonly ILibroDBService _libroDBService;
+        private readonly ILibroService _libroDBService;
 
-        public LibroDBController(ILibroDBService libroDBService)
+        public LibroController(ILibroService libroDBService)
         {
             _libroDBService = libroDBService;
         }

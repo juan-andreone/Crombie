@@ -3,52 +3,40 @@ using Dapper;
 using Microsoft.Data.SqlClient;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using static bibliotecaLAST.Services.UsuarioDBService;
+using static bibliotecaLAST.Services.UsuarioService;
 
 
 namespace bibliotecaLAST.Services
 {
 
-    public class UsuarioDBService : IUsuarioDBService
+    public class UsuarioService : IUsuarioService
     {
         private readonly SqlConnection _sqlConnection;
 
-        public UsuarioDBService(SqlConnection sqlConnection)
+        public UsuarioService(SqlConnection sqlConnection)
         {
             _sqlConnection = sqlConnection;
         }
 
-        public async Task<IEnumerable<string>> GetNamesAsync()
-        {
-            try
-            {
 
-                var query = "SELECT * FROM BibliotecaTable";
-                var result = await _sqlConnection.QueryAsync<string>(query);
-                return result;
-            }
-            catch (Exception ex)
-            {
+       
 
-                throw new ApplicationException($"Error al consultar la base de datos: {ex.Message}");
-            }
-        }
+        //public async Task<Usuarios> GetNameByIdAsync(int id)
+        //{
+        //    try
+        //    {
+        //        var query = "SELECT * FROM BibliotecaTable WHERE Usuario = @Id";
 
+        //        var usuario = await _sqlConnection.QueryFirstOrDefaultAsync<Usuarios>(query, new { Id = id });
 
+        //        return usuario; 
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new ApplicationException($"Error al consultar la base de datos: {ex.Message}");
+        //    }
+        //}
 
-
-        public async Task<string> GetNameByIdAsync(int id)
-        {
-            try
-            {
-                var query = "SELECT Nombre FROM BibliotecaTable WHERE Usuario = @Id";
-                return await _sqlConnection.QueryFirstOrDefaultAsync<string>(query, new { Id = id });
-            }
-            catch (Exception ex)
-            {
-                throw new ApplicationException($"Error al consultar la base de datos: {ex.Message}");
-            }
-        }
 
         public async Task DeleteUserByIdAsync(int usuario)
         {
@@ -168,6 +156,18 @@ namespace bibliotecaLAST.Services
             }
         }
 
-
+        public async Task<IEnumerable<Usuarios>> GetAllUsersAsync()
+        {
+            try
+            {
+                var query = "SELECT * FROM BibliotecaTable";
+                var usuarios = await _sqlConnection.QueryAsync<Usuarios>(query);
+                return usuarios;
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException($"Error al obtener los libros: {ex.Message}");
+            }
+        }
     }
 }

@@ -3,37 +3,25 @@ using Microsoft.Data.SqlClient;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using bibliotecaLAST.Controllers;
-using static bibliotecaLAST.Services.LibroDBService;
+using static bibliotecaLAST.Services.LibroService;
 using bibliotecaLAST.Models;
 
 
 namespace bibliotecaLAST.Services
 {
 
-    public class LibroDBService : ILibroDBService
+    public class LibroService : ILibroService
     {
         private readonly SqlConnection _sqlConnection;
 
-        public LibroDBService(SqlConnection sqlConnection)
+        public LibroService(SqlConnection sqlConnection)
         {
             _sqlConnection = sqlConnection;
         }
 
        
 
-        public async Task<IEnumerable<string>> GetNombresAsync()
-        {
-            try
-            {
-                var query = "SELECT Titulo FROM BookTable";
-                var result = await _sqlConnection.QueryAsync<string>(query);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                throw new ApplicationException($"Error al consultar la base de datos: {ex.Message}");
-            }
-        }
+
 
      
 

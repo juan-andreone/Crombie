@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 namespace bibliotecaLAST.Services
 {
-    public interface IUsuarioDBService
+    public interface IUsuarioService
     {
-        Task<IEnumerable<string>> GetNamesAsync();
-        Task<string> GetNameByIdAsync(int id);
+        //Task<Usuarios> GetNameByIdAsync(int id);
 
         Task DeleteUserByIdAsync(int usuario);
 
@@ -20,5 +19,6 @@ namespace bibliotecaLAST.Services
 
         Task<IEnumerable<Usuarios>> ObtenerEstudiantesAsync();
         Task<IEnumerable<Usuarios>> ObtenerProfesoresAsync();
+        Task<IEnumerable<Usuarios>> GetAllUsersAsync();
     }
 }

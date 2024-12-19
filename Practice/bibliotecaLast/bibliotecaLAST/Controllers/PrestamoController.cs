@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using bibliotecaLAST.Models;
-using bibliotecaLAST.Services;
 using System.Threading.Tasks;
+using bibliotecaLAST.Services.Interfaces;
 
 namespace bibliotecaLAST.Controllers
 {
@@ -15,15 +15,23 @@ namespace bibliotecaLAST.Controllers
         {
             _prestamoService = prestamoService;
         }
-
-        [HttpPost("Prestar")]
+        [HttpPost("Préstamo")]
         public async Task<IActionResult> TomarPrestado([FromQuery] int usuarioID, [FromQuery] int libroID)
         {
-            await _prestamoService.TomarPrestadoAsync(usuarioID, libroID);
-            return Ok("El libro ha sido prestado.");
+            try
+            {
+                await _prestamoService.TomarPrestadoAsync(usuarioID, libroID);
+                return Ok("El libro ha sido prestado.");
+            }
+            catch (ApplicationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpPost("Devolver")]
+      
+
+        [HttpPost("Devolución")]
         public async Task<IActionResult> DevolverLibro([FromQuery] int libroID)
         {
             await _prestamoService.DevolverLibroAsync(libroID);

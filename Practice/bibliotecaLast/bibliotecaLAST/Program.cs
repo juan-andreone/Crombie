@@ -8,6 +8,7 @@ using Microsoft.Data.SqlClient;
 using Dapper;
 using bibliotecaLAST.Services;
 using bibliotecaLAST;
+using bibliotecaLAST.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 

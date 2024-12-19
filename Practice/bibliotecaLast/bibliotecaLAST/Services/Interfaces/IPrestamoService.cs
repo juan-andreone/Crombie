@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using bibliotecaLAST.Models;
 
-namespace bibliotecaLAST.Services
+namespace bibliotecaLAST.Services.Interfaces
 {
     public interface IPrestamoService
     {

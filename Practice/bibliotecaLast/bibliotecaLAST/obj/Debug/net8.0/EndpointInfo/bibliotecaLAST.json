@@ -179,7 +179,7 @@
         }
       }
     },
-    "/api/Prestamo/Prestar": {
+    "/api/Prestamo/Préstamo": {
       "post": {
         "tags": [
           "Prestamo"
@@ -209,7 +209,7 @@
         }
       }
     },
-    "/api/Prestamo/Devolver": {
+    "/api/Prestamo/Devolución": {
       "post": {
         "tags": [
           "Prestamo"

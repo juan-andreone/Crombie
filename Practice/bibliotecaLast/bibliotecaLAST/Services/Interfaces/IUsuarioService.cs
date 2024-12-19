@@ -1,7 +1,7 @@
 ﻿using bibliotecaLAST.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-namespace bibliotecaLAST.Services
+namespace bibliotecaLAST.Services.Interfaces
 {
     public interface IUsuarioService
     {

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using bibliotecaLAST.Controllers;
 using static bibliotecaLAST.Services.LibroService;
 using bibliotecaLAST.Models;
+using bibliotecaLAST.Services.Interfaces;
 
 
 namespace bibliotecaLAST.Services

@@ -1,4 +1,5 @@
 ﻿using bibliotecaLAST.Models;
+using bibliotecaLAST.Services.Interfaces;
 using Dapper;
 using Microsoft.Data.SqlClient;
 using System.Collections.Generic;
@@ -61,20 +62,6 @@ namespace bibliotecaLAST.Services
             }
         }
 
-      
-
-        public async Task RegistrarProfesorAsync(int usuario, string nombre)
-        {
-            await CreateUserAsync(usuario, nombre, "Profesor");
-        }
-
-        public async Task RegistrarEstudianteAsync(int usuario, string nombre)
-        {
-            await CreateUserAsync(usuario, nombre, "Estudiante");
-        }
-
-       
-
         private async Task<IEnumerable<Prestamo>> ObtenerPrestamosPorUsuarioAsync(int usuarioId)
         {
             var queryPrestamos = @"
@@ -116,6 +103,20 @@ namespace bibliotecaLAST.Services
                 throw new ApplicationException($"Error al obtener el usuario con préstamos: {ex.Message}");
             }
         }
+
+        public async Task RegistrarProfesorAsync(int usuario, string nombre)
+        {
+            await CreateUserAsync(usuario, nombre, "Profesor");
+        }
+
+        public async Task RegistrarEstudianteAsync(int usuario, string nombre)
+        {
+            await CreateUserAsync(usuario, nombre, "Estudiante");
+        }
+
+       
+
+        
 
         public async Task<IEnumerable<Usuarios>> GetAllUsersAsync()
         {

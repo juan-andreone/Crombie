@@ -107,7 +107,7 @@
   {
     "ContainingType": "bibliotecaLAST.Controllers.PrestamoController",
     "Method": "DevolverLibro",
-    "RelativePath": "api/Prestamo/Devolver",
+    "RelativePath": "api/Prestamo/Devoluci\u00F3n",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -143,7 +143,7 @@
   {
     "ContainingType": "bibliotecaLAST.Controllers.PrestamoController",
     "Method": "TomarPrestado",
-    "RelativePath": "api/Prestamo/Prestar",
+    "RelativePath": "api/Prestamo/Pr\u00E9stamo",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
